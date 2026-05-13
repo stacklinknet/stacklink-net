@@ -1,6 +1,7 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { MessageCircle } from "lucide-react";
 import { SiteLayout } from "@/components/site/Layout";
+import { InquiryDialog } from "@/components/site/InquiryDialog";
 import { PRODUCTS, COMPANY } from "@/lib/site-data";
 import banner from "@/assets/banner-products.jpg";
 import imgFirewall from "@/assets/product-firewall.jpg";
@@ -65,20 +66,36 @@ function Products() {
                 <img src={IMG[p.slug]} alt={p.name} loading="lazy" className="w-full h-full object-contain p-6 group-hover:scale-110 transition-smooth duration-500" />
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-smooth" style={{ background: "linear-gradient(180deg, transparent 60%, oklch(0.18 0.07 250 / 0.85))" }} />
                 <div className="absolute bottom-3 left-3 right-3 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-smooth">
-                  <Link to="/contact" className="block w-full text-center px-3 py-2 rounded-lg bg-white text-primary text-xs font-semibold">
-                    Quick Inquiry
-                  </Link>
+                  <InquiryDialog
+                    source={`Product: ${p.name}`}
+                    subject={`Product Inquiry — ${p.name}`}
+                    defaultRequirement={p.name}
+                    title={`Inquire about ${p.name}`}
+                    trigger={
+                      <button type="button" className="block w-full text-center px-3 py-2 rounded-lg bg-white text-primary text-xs font-semibold">
+                        Quick Inquiry
+                      </button>
+                    }
+                  />
                 </div>
               </div>
               <div className="p-5">
                 <h3 className="font-display font-semibold text-lg text-primary mb-2">{p.name}</h3>
                 <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{p.desc}</p>
                 <div className="flex gap-2">
-                  <Link to="/contact" className="flex-1 px-3 py-2 rounded-lg text-white text-xs font-semibold text-center hover:opacity-90 transition-smooth" style={{ background: "linear-gradient(135deg, oklch(0.55 0.18 230), oklch(0.7 0.15 200))" }}>
-                    Inquire
-                  </Link>
+                  <InquiryDialog
+                    source={`Product: ${p.name}`}
+                    subject={`Product Inquiry — ${p.name}`}
+                    defaultRequirement={p.name}
+                    title={`Inquire about ${p.name}`}
+                    trigger={
+                      <button type="button" className="flex-1 px-3 py-2 rounded-lg text-white text-xs font-semibold text-center hover:opacity-90 transition-smooth" style={{ background: "linear-gradient(135deg, oklch(0.55 0.18 230), oklch(0.7 0.15 200))" }}>
+                        Inquire
+                      </button>
+                    }
+                  />
                   <a
-                    href={`https://wa.me/${COMPANY.whatsapp}?text=Inquiry about ${p.name}`}
+                    href={`https://wa.me/${COMPANY.whatsapp}?text=${encodeURIComponent(`Hi Stacklink, I'd like to inquire about ${p.name}.`)}`}
                     target="_blank"
                     rel="noreferrer"
                     className="px-3 py-2 rounded-lg bg-[#25D366] text-white flex items-center justify-center hover:scale-105 transition-smooth"

@@ -1,7 +1,9 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ShieldCheck, Network, Wifi, Cctv, PhoneCall, Server, Headphones, Cog } from "lucide-react";
+import { createFileRoute } from "@tanstack/react-router";
+import { ArrowRight, ShieldCheck, Network, Wifi, Cctv, PhoneCall, Server, Headphones, Cog, MessageCircle } from "lucide-react";
 import { SiteLayout } from "@/components/site/Layout";
+import { InquiryDialog } from "@/components/site/InquiryDialog";
 import { SERVICES } from "@/lib/site-data";
+import { COMPANY } from "@/lib/site-data";
 import banner from "@/assets/banner-services.jpg";
 
 const ICONS: Record<string, any> = { ShieldCheck, Network, Wifi, Cctv, PhoneCall, Server, Headphones, Cog };
@@ -56,9 +58,27 @@ function Services() {
                 <div className="p-6">
                   <h3 className="font-display font-semibold text-xl text-primary mb-2">{s.title}</h3>
                   <p className="text-muted-foreground mb-5 leading-relaxed">{s.desc}</p>
-                  <Link to="/contact" className="inline-flex items-center gap-1 text-sm font-semibold text-cyan hover:gap-2 transition-smooth">
-                    Get a quote <ArrowRight className="w-4 h-4" />
-                  </Link>
+                  <div className="flex items-center gap-3">
+                    <InquiryDialog
+                      source={`Service: ${s.title}`}
+                      subject={`Service Inquiry — ${s.title}`}
+                      defaultRequirement={s.title}
+                      title={`Get a quote for ${s.title}`}
+                      trigger={
+                        <button type="button" className="inline-flex items-center gap-1 text-sm font-semibold text-cyan hover:gap-2 transition-smooth">
+                          Get a quote <ArrowRight className="w-4 h-4" />
+                        </button>
+                      }
+                    />
+                    <a
+                      href={`https://wa.me/${COMPANY.whatsapp}?text=${encodeURIComponent(`Hi Stacklink, I'd like to discuss ${s.title}.`)}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1 text-sm font-semibold text-[#25D366] hover:gap-2 transition-smooth"
+                    >
+                      <MessageCircle className="w-4 h-4" /> WhatsApp
+                    </a>
+                  </div>
                 </div>
               </div>
             );

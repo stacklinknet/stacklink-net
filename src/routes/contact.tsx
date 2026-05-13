@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
-import { Mail, Phone, MapPin, MessageCircle, Send, CheckCircle2, Building2 } from "lucide-react";
+import { Mail, Phone, MapPin, MessageCircle, Building2 } from "lucide-react";
 import { SiteLayout } from "@/components/site/Layout";
+import { InquiryForm } from "@/components/site/InquiryForm";
 import { COMPANY, OFFICES } from "@/lib/site-data";
 import banner from "@/assets/banner-contact.jpg";
 
@@ -19,8 +19,6 @@ export const Route = createFileRoute("/contact")({
 });
 
 function Contact() {
-  const [sent, setSent] = useState(false);
-
   return (
     <SiteLayout>
       <section className="relative overflow-hidden -mt-20 pt-32 pb-24">
@@ -42,45 +40,14 @@ function Contact() {
           <div className="lg:col-span-3 p-8 md:p-10 rounded-3xl bg-card border border-border shadow-elegant">
             <h2 className="font-display font-bold text-2xl text-primary mb-2">Request a Quote</h2>
             <p className="text-muted-foreground mb-8">Tell us about your project — we'll get back within 24 hours.</p>
-
-            {sent ? (
-              <div className="p-8 rounded-xl bg-cyan/10 border border-cyan/30 text-center">
-                <CheckCircle2 className="w-12 h-12 text-cyan mx-auto mb-3" />
-                <h3 className="font-display font-bold text-xl text-primary mb-1">Thank you!</h3>
-                <p className="text-muted-foreground">Your inquiry has been received. Our team will reach out shortly.</p>
-              </div>
-            ) : (
-              <form
-                onSubmit={(e) => { e.preventDefault(); setSent(true); }}
-                className="grid md:grid-cols-2 gap-4"
-              >
-                <input required placeholder="Full name" className="px-4 py-3 rounded-xl bg-muted/50 border border-border focus:border-cyan focus:ring-2 focus:ring-cyan/30 outline-none transition-smooth" />
-                <input required type="email" placeholder="Email" className="px-4 py-3 rounded-xl bg-muted/50 border border-border focus:border-cyan focus:ring-2 focus:ring-cyan/30 outline-none transition-smooth" />
-                <input placeholder="Phone" className="px-4 py-3 rounded-xl bg-muted/50 border border-border focus:border-cyan focus:ring-2 focus:ring-cyan/30 outline-none transition-smooth" />
-                <input placeholder="Company" className="px-4 py-3 rounded-xl bg-muted/50 border border-border focus:border-cyan focus:ring-2 focus:ring-cyan/30 outline-none transition-smooth" />
-                <select className="md:col-span-2 px-4 py-3 rounded-xl bg-muted/50 border border-border focus:border-cyan focus:ring-2 focus:ring-cyan/30 outline-none transition-smooth">
-                  <option>Service of interest</option>
-                  <option>IT Security</option>
-                  <option>Networking</option>
-                  <option>Wireless / WiFi</option>
-                  <option>CCTV</option>
-                  <option>IP Telephony</option>
-                  <option>IT Infrastructure</option>
-                  <option>Technical Support</option>
-                </select>
-                <textarea required rows={5} placeholder="Tell us about your project..." className="md:col-span-2 px-4 py-3 rounded-xl bg-muted/50 border border-border focus:border-cyan focus:ring-2 focus:ring-cyan/30 outline-none transition-smooth" />
-                <button type="submit" className="md:col-span-2 inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl text-white font-semibold shadow-glow hover:scale-[1.02] transition-smooth" style={{ background: "linear-gradient(135deg, oklch(0.55 0.18 230), oklch(0.7 0.15 200))" }}>
-                  <Send className="w-4 h-4" /> Send Inquiry
-                </button>
-              </form>
-            )}
+            <InquiryForm source="Contact Page" subject="New Quote Request — Stacklink Website" />
           </div>
 
           <div className="lg:col-span-2 space-y-4">
             {[
               { Icon: Phone, title: "Call us", value: COMPANY.phone, href: `tel:${COMPANY.phone}` },
               { Icon: Mail, title: "Email", value: COMPANY.email, href: `mailto:${COMPANY.email}` },
-              { Icon: MessageCircle, title: "WhatsApp", value: "Chat with our team", href: `https://wa.me/${COMPANY.whatsapp}` },
+              { Icon: MessageCircle, title: "WhatsApp", value: "Chat with Our IT Experts", href: `https://wa.me/${COMPANY.whatsapp}` },
               { Icon: MapPin, title: "Head Office", value: "Business Bay, Dubai, UAE" },
             ].map(({ Icon, title, value, href }) => (
               <a
