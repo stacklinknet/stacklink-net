@@ -72,14 +72,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Stacklink — Premium IT Hardware & Networking UAE" },
+      { name: "description", content: "UAE's trusted IT hardware & networking partner — 22+ years, 1000+ enterprises, 25+ global brand partnerships." },
+      { name: "author", content: "Stacklink" },
+      { property: "og:title", content: "Stacklink — Premium IT & Networking" },
+      { property: "og:description", content: "Enterprise IT, networking, security, CCTV and cloud solutions across the UAE." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:site", content: "@Stacklink" },
     ],
     links: [
       {
