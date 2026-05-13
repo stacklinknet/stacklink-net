@@ -27,15 +27,16 @@ export function Header() {
   return (
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-smooth ${
-        scrolled ? "glass shadow-card py-2" : "bg-transparent py-4"
+        scrolled ? "glass shadow-card py-2" : "bg-white/80 backdrop-blur-sm py-3"
       }`}
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2 group">
-          <img src={logo} alt="Stacklink" className="h-10 w-10 object-contain" />
-          <span className="font-display font-bold text-xl text-primary tracking-tight">
-            Stack<span className="text-emerald">link</span>
-          </span>
+        <Link to="/" className="flex items-center group" aria-label="Stacklink home">
+          <img
+            src={logo}
+            alt="Stacklink"
+            className="h-12 md:h-14 w-auto object-contain transition-transform duration-500 group-hover:scale-110 group-hover:rotate-[-2deg] drop-shadow-md"
+          />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-1">
@@ -44,8 +45,8 @@ export function Header() {
               key={n.to}
               to={n.to}
               activeOptions={{ exact: n.to === "/" }}
-              className="px-4 py-2 rounded-lg text-sm font-medium text-foreground/80 hover:text-emerald hover:bg-emerald/5 transition-smooth"
-              activeProps={{ className: "text-emerald bg-emerald/10" }}
+              className="relative px-4 py-2 rounded-lg text-sm font-medium text-foreground/80 hover:text-cyan transition-smooth after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:bottom-1 after:w-0 after:h-0.5 after:bg-cyan hover:after:w-6 after:transition-all"
+              activeProps={{ className: "text-cyan" }}
             >
               {n.label}
             </Link>
@@ -53,13 +54,13 @@ export function Header() {
         </nav>
 
         <div className="hidden lg:flex items-center gap-3">
-          <a href={`tel:${COMPANY.phone}`} className="flex items-center gap-2 text-sm text-foreground/70 hover:text-emerald transition-smooth">
+          <a href={`tel:${COMPANY.phone}`} className="flex items-center gap-2 text-sm text-foreground/70 hover:text-cyan transition-smooth">
             <Phone className="w-4 h-4" /> {COMPANY.phone}
           </a>
           <Link
             to="/contact"
-            className="px-5 py-2.5 rounded-lg bg-emerald text-white text-sm font-semibold shadow-glow hover:scale-105 transition-smooth"
-            style={{ background: "var(--gradient-emerald)" }}
+            className="px-5 py-2.5 rounded-lg text-white text-sm font-semibold shadow-glow hover:scale-105 transition-smooth"
+            style={{ background: "linear-gradient(135deg, oklch(0.55 0.18 230), oklch(0.7 0.15 200))" }}
           >
             Request a Quote
           </Link>
@@ -82,7 +83,7 @@ export function Header() {
                 key={n.to}
                 to={n.to}
                 onClick={() => setOpen(false)}
-                className="px-4 py-3 rounded-lg text-foreground/80 hover:bg-emerald/10 hover:text-emerald"
+                className="px-4 py-3 rounded-lg text-foreground/80 hover:bg-cyan/10 hover:text-cyan"
               >
                 {n.label}
               </Link>
@@ -91,7 +92,7 @@ export function Header() {
               to="/contact"
               onClick={() => setOpen(false)}
               className="mt-2 px-4 py-3 rounded-lg text-center text-white font-semibold"
-              style={{ background: "var(--gradient-emerald)" }}
+              style={{ background: "linear-gradient(135deg, oklch(0.55 0.18 230), oklch(0.7 0.15 200))" }}
             >
               Request a Quote
             </Link>

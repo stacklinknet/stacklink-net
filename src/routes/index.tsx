@@ -1,12 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, MessageCircle, Phone, ShieldCheck, Network, Wifi, Cctv, PhoneCall, Server, Cloud, Headphones, Award, Users, Package, Clock, CheckCircle2, Sparkles } from "lucide-react";
+import { ArrowRight, MessageCircle, Phone, ShieldCheck, Network, Wifi, Cctv, PhoneCall, Server, Headphones, Cog, Sparkles, Lock, Radio, Layers, HeartHandshake } from "lucide-react";
 import { SiteLayout } from "@/components/site/Layout";
 import { Counter } from "@/components/site/Counter";
 import { BrandMarquee } from "@/components/site/BrandMarquee";
 import { COMPANY, SERVICES, STATS } from "@/lib/site-data";
 import heroImg from "@/assets/hero-network.jpg";
 
-const ICONS: Record<string, any> = { ShieldCheck, Network, Wifi, Cctv, PhoneCall, Server, Cloud, Headphones };
+const ICONS: Record<string, any> = { ShieldCheck, Network, Wifi, Cctv, PhoneCall, Server, Headphones, Cog };
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -20,6 +20,15 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
+const ENTERPRISE = [
+  { Icon: Lock, title: "Secure Enterprise Networking", desc: "Hardened routing, switching and SD-WAN with zero-trust architecture." },
+  { Icon: Cctv, title: "Smart Surveillance Solutions", desc: "AI-powered CCTV, NVR and centralized monitoring for total visibility." },
+  { Icon: Radio, title: "Advanced Wireless Infrastructure", desc: "High-density WiFi 6/6E for offices, hotels, warehouses and campuses." },
+  { Icon: Headphones, title: "Reliable Technical Support", desc: "SLA-backed 24/7 support with on-site engineers across the UAE." },
+  { Icon: Layers, title: "Future-Ready IT Solutions", desc: "Cloud, hybrid and modern data center designs built to scale." },
+  { Icon: HeartHandshake, title: "Certified Technology Partnerships", desc: "Authorized partner of Cisco, Fortinet, Aruba, Dell and 20+ vendors." },
+];
+
 function Home() {
   return (
     <SiteLayout>
@@ -27,24 +36,23 @@ function Home() {
       <section className="relative overflow-hidden -mt-20 pt-20 min-h-[92vh] flex items-center">
         <div className="absolute inset-0">
           <img src={heroImg} alt="" className="w-full h-full object-cover" />
-          <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, oklch(0.15 0.06 255 / 0.95), oklch(0.22 0.08 255 / 0.85), oklch(0.25 0.1 200 / 0.7))" }} />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, oklch(0.15 0.06 255 / 0.95), oklch(0.22 0.08 235 / 0.85), oklch(0.28 0.1 200 / 0.7))" }} />
           <div className="absolute inset-0 grid-bg opacity-40" />
         </div>
 
-        {/* Floating orbs */}
-        <div className="absolute top-1/4 left-10 w-72 h-72 rounded-full bg-emerald/30 blur-3xl animate-float" />
-        <div className="absolute bottom-1/4 right-10 w-96 h-96 rounded-full bg-cyan/20 blur-3xl animate-float" style={{ animationDelay: "2s" }} />
+        <div className="absolute top-1/4 left-10 w-72 h-72 rounded-full bg-cyan/30 blur-3xl animate-float" />
+        <div className="absolute bottom-1/4 right-10 w-96 h-96 rounded-full bg-sky-400/20 blur-3xl animate-float" style={{ animationDelay: "2s" }} />
 
         <div className="container mx-auto px-4 relative z-10 py-20">
           <div className="max-w-4xl">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-dark text-white/90 text-sm font-medium mb-6 animate-fade-up">
-              <Sparkles className="w-4 h-4 text-emerald" />
+              <Sparkles className="w-4 h-4 text-cyan" />
               Trusted by 1000+ UAE Enterprises
             </div>
 
             <h1 className="font-display font-bold text-white text-4xl md:text-6xl lg:text-7xl leading-[1.05] mb-6 animate-fade-up" style={{ animationDelay: "0.1s" }}>
               22+ Years of Trusted{" "}
-              <span className="block mt-2" style={{ background: "var(--gradient-emerald)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>
+              <span className="block mt-2" style={{ background: "linear-gradient(135deg, oklch(0.78 0.13 200), oklch(0.65 0.18 220))", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>
                 IT Hardware & Networking Excellence
               </span>
             </h1>
@@ -57,7 +65,7 @@ function Home() {
               <Link
                 to="/contact"
                 className="group inline-flex items-center gap-2 px-7 py-4 rounded-xl text-white font-semibold shadow-glow hover:scale-105 transition-smooth"
-                style={{ background: "var(--gradient-emerald)" }}
+                style={{ background: "linear-gradient(135deg, oklch(0.55 0.18 230), oklch(0.7 0.15 200))" }}
               >
                 Request a Quote
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-smooth" />
@@ -75,7 +83,7 @@ function Home() {
               </a>
             </div>
 
-            {/* Hero stats */}
+            {/* Hero stats — single source of truth */}
             <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl animate-fade-up" style={{ animationDelay: "0.4s" }}>
               {STATS.map((s) => (
                 <div key={s.label} className="glass-dark rounded-xl p-4">
@@ -94,7 +102,7 @@ function Home() {
       <section className="py-16 border-y border-border bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-8">
-            <p className="text-sm font-semibold uppercase tracking-widest text-emerald">Certified Technology Partners</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan">Certified Technology Partners</p>
             <h2 className="font-display font-bold text-2xl md:text-3xl text-primary mt-2">Powered by the world's leading IT brands</h2>
           </div>
           <BrandMarquee />
@@ -105,7 +113,7 @@ function Home() {
       <section className="py-24 relative">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto text-center mb-16">
-            <p className="text-sm font-semibold uppercase tracking-widest text-emerald">What We Do</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan">What We Do</p>
             <h2 className="font-display font-bold text-3xl md:text-5xl text-primary mt-3 mb-4">End-to-end IT solutions for modern enterprises</h2>
             <p className="text-muted-foreground text-lg">From advisory to deployment to 24/7 support — one partner for your entire IT stack.</p>
           </div>
@@ -114,73 +122,67 @@ function Home() {
             {SERVICES.map((s, i) => {
               const Icon = ICONS[s.icon] ?? ShieldCheck;
               return (
-                <div
+                <Link
+                  to="/services"
                   key={s.slug}
-                  className="group relative p-6 rounded-2xl bg-card border border-border shadow-card hover:shadow-elegant hover:-translate-y-2 transition-smooth overflow-hidden"
+                  className="group relative rounded-2xl bg-card border border-border shadow-card hover:shadow-elegant hover:-translate-y-2 transition-smooth overflow-hidden animate-fade-up"
                   style={{ animationDelay: `${i * 60}ms` }}
                 >
-                  <div className="absolute -top-12 -right-12 w-32 h-32 rounded-full bg-emerald/10 group-hover:bg-emerald/20 blur-2xl transition-smooth" />
-                  <div className="relative">
-                    <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-5 text-white shadow-glow" style={{ background: "var(--gradient-emerald)" }}>
-                      <Icon className="w-7 h-7" />
+                  <div className="relative h-36 overflow-hidden">
+                    <img src={s.img} alt={s.title} loading="lazy" className="w-full h-full object-cover group-hover:scale-110 transition-smooth duration-700" />
+                    <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, oklch(0.18 0.07 250 / 0.3) 0%, oklch(0.18 0.07 250 / 0.85) 100%)" }} />
+                    <div className="absolute bottom-3 left-3 w-11 h-11 rounded-xl flex items-center justify-center text-white shadow-glow" style={{ background: "linear-gradient(135deg, oklch(0.55 0.18 230), oklch(0.7 0.15 200))" }}>
+                      <Icon className="w-5 h-5" />
                     </div>
-                    <h3 className="font-display font-semibold text-lg text-primary mb-2">{s.title}</h3>
-                    <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{s.desc}</p>
-                    <Link to="/services" className="inline-flex items-center gap-1 text-sm font-semibold text-emerald hover:gap-2 transition-smooth">
-                      Learn more <ArrowRight className="w-4 h-4" />
-                    </Link>
                   </div>
-                </div>
+                  <div className="p-5">
+                    <h3 className="font-display font-semibold text-base text-primary mb-2">{s.title}</h3>
+                    <p className="text-sm text-muted-foreground mb-3 leading-relaxed line-clamp-2">{s.desc}</p>
+                    <span className="inline-flex items-center gap-1 text-sm font-semibold text-cyan group-hover:gap-2 transition-smooth">
+                      Learn more <ArrowRight className="w-4 h-4" />
+                    </span>
+                  </div>
+                </Link>
               );
             })}
           </div>
         </div>
       </section>
 
-      {/* WHY US — TRUST */}
+      {/* ENTERPRISE TECHNOLOGY SOLUTIONS (replaces Why Stacklink) */}
       <section className="py-24 relative overflow-hidden" style={{ background: "var(--gradient-hero)" }}>
         <div className="absolute inset-0 grid-bg opacity-30" />
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-emerald/20 blur-3xl" />
+        <div className="absolute -top-20 -left-20 w-96 h-96 rounded-full bg-cyan/20 blur-3xl animate-float" />
+        <div className="absolute -bottom-20 -right-20 w-[500px] h-[500px] rounded-full bg-sky-400/15 blur-3xl animate-float" style={{ animationDelay: "2s" }} />
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-widest text-emerald">Why Stacklink</p>
-              <h2 className="font-display font-bold text-3xl md:text-5xl text-white mt-3 mb-6">Built on trust. Delivered with precision.</h2>
-              <p className="text-white/80 text-lg mb-8 leading-relaxed">
-                For over two decades, Stacklink has been the silent backbone of UAE's most demanding businesses — banks, hospitals, hotels, government, and SMEs.
-              </p>
-              <ul className="space-y-4">
-                {[
-                  "Authorized partner with 25+ global IT brands",
-                  "Certified network & security engineers in-house",
-                  "SLA-backed 24/7 technical support across UAE",
-                  "End-to-end design, supply, install & maintain",
-                ].map((t) => (
-                  <li key={t} className="flex items-start gap-3 text-white/90">
-                    <CheckCircle2 className="w-6 h-6 text-emerald shrink-0 mt-0.5" />
-                    <span>{t}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div className="max-w-2xl mx-auto text-center mb-16">
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan animate-fade-up">Enterprise Technology Solutions</p>
+            <h2 className="font-display font-bold text-3xl md:text-5xl text-white mt-3 mb-4 animate-fade-up" style={{ animationDelay: "0.1s" }}>
+              Future-ready infrastructure, built for performance.
+            </h2>
+            <p className="text-white/80 text-lg animate-fade-up" style={{ animationDelay: "0.2s" }}>
+              Premium engineering, certified partnerships and 24/7 support — the foundation behind every connected business we serve.
+            </p>
+          </div>
 
-            <div className="grid grid-cols-2 gap-5">
-              {[
-                { Icon: Award, label: "Years Experience", value: 22, suf: "+" },
-                { Icon: Users, label: "Happy Clients", value: 1000, suf: "+" },
-                { Icon: Package, label: "Products Delivered", value: 5000, suf: "+" },
-                { Icon: Clock, label: "Support", value: 24, suf: "/7" },
-              ].map(({ Icon, label, value, suf }) => (
-                <div key={label} className="glass-dark p-6 rounded-2xl text-center">
-                  <Icon className="w-8 h-8 text-emerald mx-auto mb-3" />
-                  <div className="font-display font-bold text-4xl text-white">
-                    <Counter to={value} suffix={suf} />
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {ENTERPRISE.map(({ Icon, title, desc }, i) => (
+              <div
+                key={title}
+                className="group relative p-7 rounded-2xl glass-dark border border-white/10 hover:border-cyan/40 hover:-translate-y-2 transition-smooth overflow-hidden animate-fade-up"
+                style={{ animationDelay: `${i * 70}ms` }}
+              >
+                <div className="absolute -top-16 -right-16 w-40 h-40 rounded-full bg-cyan/10 group-hover:bg-cyan/30 blur-2xl transition-smooth" />
+                <div className="relative">
+                  <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-5 text-white shadow-glow group-hover:scale-110 transition-smooth" style={{ background: "linear-gradient(135deg, oklch(0.55 0.18 230), oklch(0.7 0.15 200))" }}>
+                    <Icon className="w-7 h-7" />
                   </div>
-                  <div className="text-sm text-white/70 mt-1">{label}</div>
+                  <h3 className="font-display font-semibold text-lg text-white mb-2">{title}</h3>
+                  <p className="text-sm text-white/70 leading-relaxed">{desc}</p>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -188,7 +190,7 @@ function Home() {
       {/* CTA */}
       <section className="py-24">
         <div className="container mx-auto px-4">
-          <div className="relative overflow-hidden rounded-3xl p-10 md:p-16 shadow-elegant" style={{ background: "var(--gradient-emerald)" }}>
+          <div className="relative overflow-hidden rounded-3xl p-10 md:p-16 shadow-elegant" style={{ background: "linear-gradient(135deg, oklch(0.45 0.2 240), oklch(0.65 0.18 200))" }}>
             <div className="absolute inset-0 grid-bg opacity-20" />
             <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-white/10 blur-3xl" />
             <div className="relative grid md:grid-cols-2 gap-8 items-center">
