@@ -1,8 +1,8 @@
 export const COMPANY = {
   name: "Stacklink",
   tagline: "22+ Years of Trusted IT Hardware & Networking Excellence",
-  phone: "+971 50 000 0000",
-  whatsapp: "971500000000",
+  phone: "+971 54 783 2139",
+  whatsapp: "971547832139",
   email: "info@stacklink.ae",
   address: "Dubai, United Arab Emirates",
   social: {
