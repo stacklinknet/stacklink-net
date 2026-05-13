@@ -1,6 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, MessageCircle, CheckCircle2, Package, ShieldCheck, Headphones } from "lucide-react";
 import { SiteLayout } from "@/components/site/Layout";
+import { InquiryDialog } from "@/components/site/InquiryDialog";
 import { BRANDS, COMPANY, brandLogo, brandSlug } from "@/lib/site-data";
 
 export const Route = createFileRoute("/brands/$slug")({
@@ -52,11 +53,19 @@ function BrandPage() {
                 Stacklink is a certified {brand.name} partner — supplying, deploying and supporting {brand.name} solutions for enterprises across the UAE.
               </p>
               <div className="flex flex-wrap gap-3 mt-8">
-                <Link to="/contact" className="px-7 py-4 rounded-xl text-white font-semibold shadow-glow hover:scale-105 transition-smooth" style={{ background: "linear-gradient(135deg, oklch(0.55 0.18 230), oklch(0.7 0.15 200))" }}>
-                  Request a Quote
-                </Link>
-                <a href={`https://wa.me/${COMPANY.whatsapp}?text=Inquiry about ${brand.name}`} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-7 py-4 rounded-xl bg-[#25D366] text-white font-semibold hover:scale-105 transition-smooth">
-                  <MessageCircle className="w-4 h-4" /> WhatsApp Inquiry
+                <InquiryDialog
+                  source={`Brand: ${brand.name}`}
+                  subject={`Brand Inquiry — ${brand.name}`}
+                  defaultRequirement={brand.name}
+                  title={`Request a quote for ${brand.name}`}
+                  trigger={
+                    <button type="button" className="px-7 py-4 rounded-xl text-white font-semibold shadow-glow hover:scale-105 transition-smooth" style={{ background: "linear-gradient(135deg, oklch(0.55 0.18 230), oklch(0.7 0.15 200))" }}>
+                      Request a Quote
+                    </button>
+                  }
+                />
+                <a href={`https://wa.me/${COMPANY.whatsapp}?text=${encodeURIComponent(`Hi Stacklink, I'd like to inquire about ${brand.name} products.`)}`} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-7 py-4 rounded-xl bg-[#25D366] text-white font-semibold hover:scale-105 transition-smooth">
+                  <MessageCircle className="w-4 h-4" /> Chat with Our IT Experts
                 </a>
               </div>
             </div>
@@ -103,9 +112,17 @@ function BrandPage() {
             <div className="relative">
               <h2 className="font-display font-bold text-3xl md:text-4xl text-white mb-4">Ready to deploy {brand.name} for your business?</h2>
               <p className="text-white/90 text-lg mb-8">Get expert advice and a tailored quote within 24 hours.</p>
-              <Link to="/contact" className="inline-block px-8 py-4 rounded-xl bg-white text-primary font-semibold hover:scale-105 transition-smooth shadow-elegant">
-                Request a Quote
-              </Link>
+              <InquiryDialog
+                source={`Brand CTA: ${brand.name}`}
+                subject={`Brand Inquiry — ${brand.name}`}
+                defaultRequirement={brand.name}
+                title={`Deploy ${brand.name} with Stacklink`}
+                trigger={
+                  <button type="button" className="inline-block px-8 py-4 rounded-xl bg-white text-primary font-semibold hover:scale-105 transition-smooth shadow-elegant">
+                    Request a Quote
+                  </button>
+                }
+              />
             </div>
           </div>
         </div>
