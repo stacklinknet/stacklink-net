@@ -69,7 +69,7 @@ export function Footer() {
             <ul className="space-y-2 text-sm text-white/70">
               {SERVICES.slice(0, 6).map((s) => (
                 <li key={s.slug}>
-                  <Link to="/services" className="hover:text-emerald transition-smooth">{s.title}</Link>
+                  <Link to="/services/$slug" params={{ slug: s.slug }} className="hover:text-emerald transition-smooth">{s.title}</Link>
                 </li>
               ))}
             </ul>
@@ -80,7 +80,7 @@ export function Footer() {
             <ul className="space-y-2 text-sm text-white/70">
               <li><Link to="/about" className="hover:text-emerald">About Us</Link></li>
               <li><Link to="/brands" className="hover:text-emerald">Technology Partners</Link></li>
-              <li><Link to="/products" className="hover:text-emerald">Products</Link></li>
+              <li><Link to="/categories" className="hover:text-emerald">Shop by Category</Link></li>
               <li><Link to="/contact" className="hover:text-emerald">Contact</Link></li>
             </ul>
           </div>

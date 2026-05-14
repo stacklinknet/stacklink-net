@@ -1,12 +1,15 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, MessageCircle, Phone, ShieldCheck, Network, Wifi, Cctv, PhoneCall, Server, Headphones, Cog, Sparkles, Lock, Radio, Layers, HeartHandshake } from "lucide-react";
+import { ArrowRight, MessageCircle, Phone, ShieldCheck, Network, Wifi, Cctv, PhoneCall, Server, Headphones, Cog, Sparkles, Lock, Radio, Layers, HeartHandshake, Quote, Award } from "lucide-react";
 import { SiteLayout } from "@/components/site/Layout";
 import { Counter } from "@/components/site/Counter";
 import { BrandMarquee } from "@/components/site/BrandMarquee";
-import { COMPANY, SERVICES, STATS } from "@/lib/site-data";
+import { ProductCard } from "@/components/site/ProductCard";
+import { COMPANY, SERVICES, STATS, CATEGORIES, TESTIMONIALS, CERTIFICATIONS } from "@/lib/site-data";
+import { featuredProducts } from "@/lib/catalog";
+import { imgForCategory } from "@/components/site/ProductImage";
 import heroImg from "@/assets/hero-network.jpg";
 
-const ICONS: Record<string, any> = { ShieldCheck, Network, Wifi, Cctv, PhoneCall, Server, Headphones, Cog };
+const ICONS: Record<string, any> = { ShieldCheck, Network, Wifi, Cctv, PhoneCall, Server, Headphones, Cog, Lock, Layers };
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -109,6 +112,60 @@ function Home() {
         </div>
       </section>
 
+      {/* SHOP BY CATEGORY */}
+      <section className="py-24">
+        <div className="container mx-auto px-4">
+          <div className="max-w-2xl mx-auto text-center mb-12">
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan">Shop by Category</p>
+            <h2 className="font-display font-bold text-3xl md:text-5xl text-primary mt-3 mb-4">Browse 9 enterprise IT categories</h2>
+            <p className="text-muted-foreground text-lg">From network switches to servers — find exactly what your business needs.</p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-5">
+            {CATEGORIES.map((c, i) => {
+              const Icon = ICONS[c.icon] ?? Server;
+              return (
+                <Link key={c.slug} to="/categories/$slug" params={{ slug: c.slug }}
+                  className="group relative rounded-2xl bg-card border border-border shadow-card hover:shadow-elegant hover:-translate-y-2 hover:border-cyan/40 transition-smooth overflow-hidden animate-fade-up"
+                  style={{ animationDelay: `${i * 50}ms` }}>
+                  <div className="relative aspect-[16/10] bg-gradient-to-br from-slate-50 to-slate-100">
+                    <img src={imgForCategory(c.slug)} alt={c.name} loading="lazy" className="w-full h-full object-contain p-6 group-hover:scale-110 transition-smooth duration-500" />
+                    <div className="absolute top-3 left-3 w-10 h-10 rounded-xl flex items-center justify-center text-white shadow-glow" style={{ background: "linear-gradient(135deg, oklch(0.55 0.18 230), oklch(0.7 0.15 200))" }}>
+                      <Icon className="w-5 h-5" />
+                    </div>
+                  </div>
+                  <div className="p-5">
+                    <h3 className="font-display font-semibold text-base text-primary group-hover:text-cyan transition-smooth">{c.name}</h3>
+                    <p className="text-sm text-muted-foreground line-clamp-2 mt-1">{c.desc}</p>
+                    <span className="inline-flex items-center gap-1 mt-3 text-xs font-semibold text-cyan group-hover:gap-2 transition-smooth">
+                      Browse <ArrowRight className="w-3 h-3" />
+                    </span>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+          <div className="text-center mt-10">
+            <Link to="/categories" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-white font-semibold shadow-glow hover:scale-105 transition-smooth" style={{ background: "linear-gradient(135deg, oklch(0.55 0.18 230), oklch(0.7 0.15 200))" }}>
+              Shop All Categories <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* FEATURED PRODUCTS */}
+      <section className="py-24 bg-muted/40">
+        <div className="container mx-auto px-4">
+          <div className="max-w-2xl mx-auto text-center mb-12">
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan">Featured Products</p>
+            <h2 className="font-display font-bold text-3xl md:text-5xl text-primary mt-3 mb-4">Top picks across our catalog</h2>
+            <p className="text-muted-foreground text-lg">5000+ products from 25+ leading brands. Genuine, warranty-backed and ready to ship.</p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+            {featuredProducts(8).map((p, i) => (<ProductCard key={p.slug} p={p} delay={i * 40} />))}
+          </div>
+        </div>
+      </section>
+
       {/* SERVICES */}
       <section className="py-24 relative">
         <div className="container mx-auto px-4">
@@ -123,7 +180,8 @@ function Home() {
               const Icon = ICONS[s.icon] ?? ShieldCheck;
               return (
                 <Link
-                  to="/services"
+                  to="/services/$slug"
+                  params={{ slug: s.slug }}
                   key={s.slug}
                   className="group relative rounded-2xl bg-card border border-border shadow-card hover:shadow-elegant hover:-translate-y-2 transition-smooth overflow-hidden animate-fade-up"
                   style={{ animationDelay: `${i * 60}ms` }}
@@ -189,6 +247,41 @@ function Home() {
 
       {/* CTA */}
       <section className="py-24">
+        <div className="container mx-auto px-4 mb-16">
+          <div className="max-w-2xl mx-auto text-center mb-10">
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan">Client Testimonials</p>
+            <h2 className="font-display font-bold text-3xl md:text-4xl text-primary mt-3">Trusted by enterprises across UAE</h2>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {TESTIMONIALS.map((t, i) => (
+              <div key={t.name} className="p-6 rounded-2xl bg-card border border-border shadow-card hover:shadow-elegant hover:-translate-y-1 transition-smooth animate-fade-up" style={{ animationDelay: `${i * 60}ms` }}>
+                <Quote className="w-6 h-6 text-cyan mb-3" />
+                <p className="text-sm text-foreground/80 leading-relaxed mb-4">"{t.text}"</p>
+                <div>
+                  <div className="font-display font-semibold text-primary text-sm">{t.name}</div>
+                  <div className="text-xs text-muted-foreground">{t.role}, {t.company}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="container mx-auto px-4 mb-16">
+          <div className="rounded-3xl bg-muted/40 border border-border p-8 md:p-10">
+            <div className="text-center mb-6">
+              <p className="text-sm font-semibold uppercase tracking-widest text-cyan">Certifications & Partnerships</p>
+              <h3 className="font-display font-bold text-2xl text-primary mt-2">Authorized partner of the world's leading vendors</h3>
+            </div>
+            <div className="flex flex-wrap justify-center gap-3">
+              {CERTIFICATIONS.map((c) => (
+                <div key={c} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border text-sm font-medium text-primary shadow-sm">
+                  <Award className="w-4 h-4 text-cyan" /> {c}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
         <div className="container mx-auto px-4">
           <div className="relative overflow-hidden rounded-3xl p-10 md:p-16 shadow-elegant" style={{ background: "linear-gradient(135deg, oklch(0.45 0.2 240), oklch(0.65 0.18 200))" }}>
             <div className="absolute inset-0 grid-bg opacity-20" />

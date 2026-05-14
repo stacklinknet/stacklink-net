@@ -2,13 +2,15 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, MessageCircle, CheckCircle2, Package, ShieldCheck, Headphones } from "lucide-react";
 import { SiteLayout } from "@/components/site/Layout";
 import { InquiryDialog } from "@/components/site/InquiryDialog";
+import { RelatedProducts } from "@/components/site/RelatedProducts";
 import { BRANDS, COMPANY, brandLogo, brandSlug } from "@/lib/site-data";
+import { getProductsByBrand } from "@/lib/catalog";
 
 export const Route = createFileRoute("/brands/$slug")({
   loader: ({ params }) => {
     const brand = BRANDS.find((b) => brandSlug(b.name) === params.slug);
     if (!brand) throw notFound();
-    return { brand };
+    return { brand, products: getProductsByBrand(brand.name) };
   },
   head: ({ loaderData }) => ({
     meta: [
@@ -30,7 +32,7 @@ export const Route = createFileRoute("/brands/$slug")({
 });
 
 function BrandPage() {
-  const { brand } = Route.useLoaderData();
+  const { brand, products } = Route.useLoaderData();
   return (
     <SiteLayout>
       <section className="relative overflow-hidden -mt-20 pt-32 pb-24" style={{ background: "var(--gradient-hero)" }}>
@@ -104,6 +106,8 @@ function BrandPage() {
           </div>
         </div>
       </section>
+
+      <RelatedProducts items={products} title={`${brand.name} Products`} />
 
       <section className="py-24">
         <div className="container mx-auto px-4">
