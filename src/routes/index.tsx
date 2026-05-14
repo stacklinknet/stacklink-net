@@ -247,6 +247,41 @@ function Home() {
 
       {/* CTA */}
       <section className="py-24">
+        <div className="container mx-auto px-4 mb-16">
+          <div className="max-w-2xl mx-auto text-center mb-10">
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan">Client Testimonials</p>
+            <h2 className="font-display font-bold text-3xl md:text-4xl text-primary mt-3">Trusted by enterprises across UAE</h2>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {TESTIMONIALS.map((t, i) => (
+              <div key={t.name} className="p-6 rounded-2xl bg-card border border-border shadow-card hover:shadow-elegant hover:-translate-y-1 transition-smooth animate-fade-up" style={{ animationDelay: `${i * 60}ms` }}>
+                <Quote className="w-6 h-6 text-cyan mb-3" />
+                <p className="text-sm text-foreground/80 leading-relaxed mb-4">"{t.text}"</p>
+                <div>
+                  <div className="font-display font-semibold text-primary text-sm">{t.name}</div>
+                  <div className="text-xs text-muted-foreground">{t.role}, {t.company}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="container mx-auto px-4 mb-16">
+          <div className="rounded-3xl bg-muted/40 border border-border p-8 md:p-10">
+            <div className="text-center mb-6">
+              <p className="text-sm font-semibold uppercase tracking-widest text-cyan">Certifications & Partnerships</p>
+              <h3 className="font-display font-bold text-2xl text-primary mt-2">Authorized partner of the world's leading vendors</h3>
+            </div>
+            <div className="flex flex-wrap justify-center gap-3">
+              {CERTIFICATIONS.map((c) => (
+                <div key={c} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border text-sm font-medium text-primary shadow-sm">
+                  <Award className="w-4 h-4 text-cyan" /> {c}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
         <div className="container mx-auto px-4">
           <div className="relative overflow-hidden rounded-3xl p-10 md:p-16 shadow-elegant" style={{ background: "linear-gradient(135deg, oklch(0.45 0.2 240), oklch(0.65 0.18 200))" }}>
             <div className="absolute inset-0 grid-bg opacity-20" />
