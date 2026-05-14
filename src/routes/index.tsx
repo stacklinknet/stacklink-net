@@ -180,7 +180,8 @@ function Home() {
               const Icon = ICONS[s.icon] ?? ShieldCheck;
               return (
                 <Link
-                  to="/services"
+                  to="/services/$slug"
+                  params={{ slug: s.slug }}
                   key={s.slug}
                   className="group relative rounded-2xl bg-card border border-border shadow-card hover:shadow-elegant hover:-translate-y-2 transition-smooth overflow-hidden animate-fade-up"
                   style={{ animationDelay: `${i * 60}ms` }}

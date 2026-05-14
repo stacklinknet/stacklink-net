@@ -1,14 +1,16 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { ArrowLeft, MessageCircle, CheckCircle2, Package, ShieldCheck, Headphones } from "lucide-react";
+import { ArrowLeft, MessageCircle, Package, ShieldCheck, Headphones } from "lucide-react";
 import { SiteLayout } from "@/components/site/Layout";
 import { InquiryDialog } from "@/components/site/InquiryDialog";
+import { RelatedProducts } from "@/components/site/RelatedProducts";
 import { BRANDS, COMPANY, brandLogo, brandSlug } from "@/lib/site-data";
+import { getProductsByBrand } from "@/lib/catalog";
 
 export const Route = createFileRoute("/brands/$slug")({
   loader: ({ params }) => {
     const brand = BRANDS.find((b) => brandSlug(b.name) === params.slug);
     if (!brand) throw notFound();
-    return { brand };
+    return { brand, products: getProductsByBrand(brand.name) };
   },
   head: ({ loaderData }) => ({
     meta: [
