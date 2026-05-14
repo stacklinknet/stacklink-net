@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { ArrowLeft, MessageCircle, Package, ShieldCheck, Headphones } from "lucide-react";
+import { ArrowLeft, MessageCircle, CheckCircle2, Package, ShieldCheck, Headphones } from "lucide-react";
 import { SiteLayout } from "@/components/site/Layout";
 import { InquiryDialog } from "@/components/site/InquiryDialog";
 import { RelatedProducts } from "@/components/site/RelatedProducts";
@@ -32,7 +32,7 @@ export const Route = createFileRoute("/brands/$slug")({
 });
 
 function BrandPage() {
-  const { brand } = Route.useLoaderData();
+  const { brand, products } = Route.useLoaderData();
   return (
     <SiteLayout>
       <section className="relative overflow-hidden -mt-20 pt-32 pb-24" style={{ background: "var(--gradient-hero)" }}>
