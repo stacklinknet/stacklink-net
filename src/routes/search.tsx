@@ -11,8 +11,8 @@ const SearchSchema = z.object({ q: z.string().optional() });
 
 export const Route = createFileRoute("/search")({
   validateSearch: (s) => SearchSchema.parse(s),
-  head: ({ search }) => ({
-    meta: [{ title: `Search: ${search?.q ?? ""} — Stacklink` }],
+  head: () => ({
+    meta: [{ title: `Search — Stacklink` }],
   }),
   component: SearchPage,
 });
