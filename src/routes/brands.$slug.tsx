@@ -107,6 +107,8 @@ function BrandPage() {
         </div>
       </section>
 
+      <RelatedProducts items={products} title={`${brand.name} Products`} />
+
       <section className="py-24">
         <div className="container mx-auto px-4">
           <div className="relative overflow-hidden rounded-3xl p-10 md:p-16 shadow-elegant text-center" style={{ background: "linear-gradient(135deg, oklch(0.45 0.2 240), oklch(0.65 0.18 200))" }}>
