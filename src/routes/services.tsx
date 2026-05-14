@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ShieldCheck, Network, Wifi, Cctv, PhoneCall, Server, Headphones, Cog, MessageCircle } from "lucide-react";
 import { SiteLayout } from "@/components/site/Layout";
 import { InquiryDialog } from "@/components/site/InquiryDialog";
@@ -6,7 +6,7 @@ import { SERVICES } from "@/lib/site-data";
 import { COMPANY } from "@/lib/site-data";
 import banner from "@/assets/banner-services.jpg";
 
-const ICONS: Record<string, any> = { ShieldCheck, Network, Wifi, Cctv, PhoneCall, Server, Headphones, Cog };
+const ICONS: Record<string, any> = { ShieldCheck, Network, Wifi, Cctv, PhoneCall, Server, Headphones, Cog, Layers: Server };
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -56,17 +56,22 @@ function Services() {
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="font-display font-semibold text-xl text-primary mb-2">{s.title}</h3>
+                  <Link to="/services/$slug" params={{ slug: s.slug }} className="font-display font-semibold text-xl text-primary mb-2 hover:text-cyan transition-smooth block">
+                    {s.title}
+                  </Link>
                   <p className="text-muted-foreground mb-5 leading-relaxed">{s.desc}</p>
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-4 flex-wrap">
+                    <Link to="/services/$slug" params={{ slug: s.slug }} className="inline-flex items-center gap-1 text-sm font-semibold text-cyan hover:gap-2 transition-smooth">
+                      Learn more <ArrowRight className="w-4 h-4" />
+                    </Link>
                     <InquiryDialog
                       source={`Service: ${s.title}`}
                       subject={`Service Inquiry — ${s.title}`}
                       defaultRequirement={s.title}
                       title={`Get a quote for ${s.title}`}
                       trigger={
-                        <button type="button" className="inline-flex items-center gap-1 text-sm font-semibold text-cyan hover:gap-2 transition-smooth">
-                          Get a quote <ArrowRight className="w-4 h-4" />
+                        <button type="button" className="inline-flex items-center gap-1 text-sm font-semibold text-primary hover:text-cyan transition-smooth">
+                          Get a quote
                         </button>
                       }
                     />
