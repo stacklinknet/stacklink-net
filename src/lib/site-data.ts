@@ -1,10 +1,11 @@
 export const COMPANY = {
   name: "Stacklink",
   tagline: "22+ Years of Trusted IT Hardware & Networking Excellence",
-  phone: "+971 54 783 2139",
+  phone: "+971 56 339 0030",
   whatsapp: "971547832139",
-  email: "info@stacklink.ae",
-  address: "Dubai, United Arab Emirates",
+  whatsappDisplay: "+971 54 783 2139",
+  email: "contact@stacklink.net",
+  address: "Business Bay, Dubai, United Arab Emirates",
   social: {
     linkedin: "https://linkedin.com",
     instagram: "https://instagram.com",
@@ -23,18 +24,71 @@ export const SERVICES = [
   { slug: "infrastructure", title: "IT Infrastructure", icon: "Server", desc: "Servers, storage, structured cabling and data center fit-out.", img: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=900&q=80" },
   { slug: "cctv", title: "CCTV Installation", icon: "Cctv", desc: "IP camera supply, installation and centralized monitoring.", img: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=900&q=80" },
   { slug: "support", title: "Technical Support", icon: "Headphones", desc: "AMC, SLA-backed support and on-site engineers across UAE.", img: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=900&q=80" },
+  { slug: "firewall", title: "Firewall Solutions", icon: "ShieldCheck", desc: "Next-gen firewall design, deployment and managed services.", img: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=900&q=80" },
+  { slug: "cabling", title: "Structured Cabling", icon: "Network", desc: "Cat6/6A, fiber backbone and certified data cabling installations.", img: "https://images.unsplash.com/photo-1551808525-51a94da548ce?w=900&q=80" },
+  { slug: "cloud", title: "Cloud Solutions", icon: "Layers", desc: "Microsoft 365, Azure, AWS migration and hybrid cloud architecture.", img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=900&q=80" },
 ];
 
-export const PRODUCTS = [
-  { slug: "firewalls", name: "Firewalls", icon: "Shield", desc: "Next-gen firewalls from Fortinet, SonicWall, Cisco.", img: "/src/assets/product-firewall.jpg" },
-  { slug: "access-points", name: "Access Points", icon: "Wifi", desc: "WiFi 6/6E APs from Aruba, Ubiquiti, TP-Link.", img: "/src/assets/product-ap.jpg" },
-  { slug: "routers", name: "Routers", icon: "Router", desc: "Enterprise routers and SD-WAN appliances.", img: "/src/assets/product-router.jpg" },
-  { slug: "switches", name: "Switches", icon: "Network", desc: "Managed L2/L3 switches with PoE+.", img: "/src/assets/product-switch.jpg" },
-  { slug: "ip-phones", name: "IP Phones", icon: "Phone", desc: "Grandstream, Yealink, Fanvil, Avaya handsets.", img: "/src/assets/product-ipphone.jpg" },
-  { slug: "cctv", name: "CCTV Cameras", icon: "Cctv", desc: "IP, PTZ, thermal and AI surveillance cameras.", img: "/src/assets/product-cctv.jpg" },
-  { slug: "servers", name: "Servers", icon: "Server", desc: "Dell, HPE, IBM rack and tower servers.", img: "/src/assets/product-server.jpg" },
-  { slug: "storage", name: "Storage", icon: "HardDrive", desc: "NAS, SAN and hyper-converged storage.", img: "/src/assets/product-storage.jpg" },
+// 9 main categories (e-commerce style) with optional subcategories
+export interface Subcategory { slug: string; name: string; }
+export interface Category {
+  slug: string;
+  name: string;
+  icon: string;
+  desc: string;
+  img: string;
+  subs?: Subcategory[];
+}
+
+export const CATEGORIES: Category[] = [
+  { slug: "network-switches", name: "Network Switches", icon: "Network",
+    desc: "Managed L2/L3 switches, PoE+ and core switching for any scale.",
+    img: "/src/assets/product-switch.jpg" },
+  { slug: "telephony", name: "Telephony", icon: "PhoneCall",
+    desc: "IP PBX, VoIP gateways, IP phones and unified communications.",
+    img: "/src/assets/product-ipphone.jpg" },
+  { slug: "wireless", name: "Wireless", icon: "Wifi",
+    desc: "WiFi 6/6E access points, controllers and outdoor wireless.",
+    img: "/src/assets/product-ap.jpg" },
+  { slug: "security-firewall", name: "Security & Firewall", icon: "ShieldCheck",
+    desc: "Next-gen firewalls, UTM appliances and endpoint security.",
+    img: "/src/assets/product-firewall.jpg" },
+  { slug: "server-storage", name: "Server & Storage", icon: "Server",
+    desc: "Rack, tower and blade servers plus enterprise storage.",
+    img: "/src/assets/product-server.jpg",
+    subs: [
+      { slug: "rack-servers", name: "Rack Servers" },
+      { slug: "tower-servers", name: "Tower Servers" },
+      { slug: "blade-servers", name: "Blade Servers" },
+      { slug: "server-processors", name: "Server Processors" },
+      { slug: "server-hard-drives", name: "Server Hard Drives" },
+      { slug: "server-memories", name: "Server Memories" },
+      { slug: "server-network-controllers", name: "Server Network Controllers" },
+      { slug: "server-storage-controllers", name: "Server Storage Controllers" },
+      { slug: "server-licenses", name: "Server Licenses" },
+      { slug: "server-network-cards", name: "Server Network Cards" },
+      { slug: "server-power-supplies", name: "Server Power Supplies" },
+      { slug: "server-accessories", name: "Server Accessories" },
+    ],
+  },
+  { slug: "cctv-surveillance", name: "CCTV & Surveillance", icon: "Cctv",
+    desc: "IP cameras, NVRs, PTZ, thermal and AI surveillance.",
+    img: "/src/assets/product-cctv.jpg" },
+  { slug: "cabinets-rack", name: "Cabinets & Rack", icon: "Server",
+    desc: "Server racks, wall-mount cabinets, PDUs and accessories.",
+    img: "/src/assets/product-storage.jpg" },
+  { slug: "softwares", name: "Softwares", icon: "Cog",
+    desc: "Microsoft, VMware, antivirus and enterprise software licenses.",
+    img: "/src/assets/product-server.jpg" },
+  { slug: "access-control", name: "Access Control", icon: "Lock",
+    desc: "Biometric, RFID readers, door controllers and visitor systems.",
+    img: "/src/assets/product-firewall.jpg" },
 ];
+
+// Legacy alias for older pages
+export const PRODUCTS = CATEGORIES.slice(0, 8).map((c) => ({
+  slug: c.slug, name: c.name, icon: c.icon, desc: c.desc, img: c.img,
+}));
 
 // Real brand logos via Clearbit logo API (uses their domain)
 export const BRANDS: { name: string; domain: string }[] = [
@@ -48,6 +102,7 @@ export const BRANDS: { name: string; domain: string }[] = [
   { name: "D-Link", domain: "dlink.com" },
   { name: "ASUS", domain: "asus.com" },
   { name: "Dell", domain: "dell.com" },
+  { name: "HPE", domain: "hpe.com" },
   { name: "Belkin", domain: "belkin.com" },
   { name: "Grandstream", domain: "grandstream.com" },
   { name: "Linksys", domain: "linksys.com" },
@@ -60,12 +115,12 @@ export const BRANDS: { name: string; domain: string }[] = [
   { name: "Logitech", domain: "logitech.com" },
   { name: "Tenda", domain: "tendacn.com" },
   { name: "Fanvil", domain: "fanvil.com" },
-  { name: "HPE", domain: "hpe.com" },
   { name: "Yealink", domain: "yealink.com" },
 ];
 
 export const brandLogo = (domain: string) => `https://logo.clearbit.com/${domain}`;
 export const brandSlug = (name: string) => name.toLowerCase().replace(/\s+/g, "-");
+export const brandByName = (name: string) => BRANDS.find((b) => b.name === name);
 
 export const STATS = [
   { value: 22, suffix: "+", label: "Years of Experience" },
@@ -75,9 +130,25 @@ export const STATS = [
 ];
 
 export const OFFICES = [
-  { city: "Dubai", country: "UAE", role: "Head Office", address: "Business Bay, Dubai" },
-  { city: "Abu Dhabi", country: "UAE", role: "Branch", address: "Al Maryah Island, Abu Dhabi" },
-  { city: "Deira", country: "UAE", role: "Branch", address: "Al Rigga, Deira" },
-  { city: "London", country: "UK", role: "International", address: "Canary Wharf, London" },
-  { city: "Mumbai", country: "India", role: "International", address: "Bandra Kurla Complex, Mumbai" },
+  { city: "Dubai", country: "UAE", role: "Head Office", address: "Business Bay, Dubai, UAE" },
+  { city: "Abu Dhabi", country: "UAE", role: "Branch", address: "Al Maryah Island, Abu Dhabi, UAE" },
+  { city: "Deira", country: "UAE", role: "Branch", address: "Al Rigga, Deira, Dubai, UAE" },
+  { city: "London", country: "UK", role: "International", address: "Canary Wharf, London, United Kingdom" },
+  { city: "Mumbai", country: "India", role: "International", address: "Bandra Kurla Complex, Mumbai, India" },
+];
+
+export const TESTIMONIALS = [
+  { name: "Ahmed Al Mansoori", role: "IT Director", company: "Dubai Holdings", text: "Stacklink delivered our entire HQ network refresh on time and within budget. Their Cisco and Fortinet expertise is best-in-class." },
+  { name: "Priya Sharma", role: "Head of Infrastructure", company: "Emirates Hospitality Group", text: "We've worked with Stacklink for over 8 years. They are our trusted partner for everything from CCTV to data center." },
+  { name: "Mohammed Khan", role: "CTO", company: "Gulf Logistics LLC", text: "Premium support, genuine products, and engineers who actually know enterprise networking. Highly recommended." },
+  { name: "Sarah Williams", role: "Operations Manager", company: "Marina Towers", text: "Their structured cabling and wireless team transformed our property's connectivity. Outstanding service." },
+];
+
+export const CERTIFICATIONS = [
+  "Cisco Premier Partner",
+  "Fortinet Authorized Reseller",
+  "Aruba Silver Partner",
+  "Microsoft Gold Partner",
+  "Dell Technologies Partner",
+  "HPE Business Partner",
 ];
