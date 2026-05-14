@@ -66,7 +66,7 @@ function CategoryPage() {
           <div className="container mx-auto px-4">
             <p className="text-xs font-bold uppercase tracking-widest text-cyan mb-4">Subcategories</p>
             <div className="flex flex-wrap gap-2">
-              {cat.subs.map((s) => (
+              {cat.subs.map((s: {slug:string;name:string}) => (
                 <Link
                   key={s.slug}
                   to="/categories/$slug/$sub"

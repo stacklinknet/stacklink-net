@@ -68,7 +68,7 @@ function ProductDetail() {
             <div className="rounded-2xl border border-border bg-card p-6 mb-6">
               <h3 className="font-display font-semibold text-lg text-primary mb-4">Key Specifications</h3>
               <dl className="grid sm:grid-cols-2 gap-3">
-                {product.specs.map((s) => (
+                {product.specs.map((s: {label:string;value:string}) => (
                   <div key={s.label} className="flex items-start gap-2">
                     <CheckCircle2 className="w-4 h-4 text-cyan shrink-0 mt-1" />
                     <div>
