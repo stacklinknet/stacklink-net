@@ -76,11 +76,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "Stacklink — Premium IT Hardware & Networking UAE" },
       { name: "description", content: "UAE's trusted IT hardware & networking partner — 22+ years, 1000+ enterprises, 25+ global brand partnerships." },
       { name: "author", content: "Stacklink" },
-      { property: "og:title", content: "Stacklink — Premium IT & Networking" },
-      { property: "og:description", content: "Enterprise IT, networking, security, CCTV and cloud solutions across the UAE." },
+      { property: "og:title", content: "Stacklink — Premium IT Hardware & Networking UAE" },
+      { property: "og:description", content: "UAE's trusted IT hardware & networking partner — 22+ years, 1000+ enterprises, 25+ global brand partnerships." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Stacklink" },
+      { name: "twitter:title", content: "Stacklink — Premium IT Hardware & Networking UAE" },
+      { name: "twitter:description", content: "UAE's trusted IT hardware & networking partner — 22+ years, 1000+ enterprises, 25+ global brand partnerships." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/2d4bbc7d-19d5-41ce-85d5-5067e9269c01/id-preview-69bafabc--f57590e6-7e39-4278-9039-9b90b3602a6d.lovable.app-1778852050861.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/2d4bbc7d-19d5-41ce-85d5-5067e9269c01/id-preview-69bafabc--f57590e6-7e39-4278-9039-9b90b3602a6d.lovable.app-1778852050861.png" },
     ],
     links: [
       {
