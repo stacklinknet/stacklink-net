@@ -45,11 +45,11 @@ export function Footer() {
             </p>
             <div className="flex gap-3 mt-6">
               {[
-                { Icon: Linkedin, href: COMPANY.social.linkedin },
-                { Icon: Instagram, href: COMPANY.social.instagram },
-                { Icon: Facebook, href: COMPANY.social.facebook },
-                { Icon: Twitter, href: COMPANY.social.twitter },
-                { Icon: Youtube, href: COMPANY.social.youtube },
+                { Icon: Linkedin, href:"https://www.linkedin.com/company/106327962/admin/dashboard/"}, 
+                { Icon: Instagram, href:"https://www.instagram.com/stacklink_/"},
+                { Icon: Facebook, href: "https://www.facebook.com/stacklinkllc/"},
+                { Icon: Twitter, href: "https://x.com/home" },
+                { Icon: Youtube, href:"https://www.youtube.com/channel/UCnEgAggasf7qvYi0zzNAgtw" },
               ].map(({ Icon, href }, i) => (
                 <a
                   key={i}
