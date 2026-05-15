@@ -37,14 +37,33 @@ export const Route = createFileRoute("/services/$slug")({
     if (!svc) throw notFound();
     return { svc };
   },
-  head: ({ loaderData }) => ({
+  head: ({ loaderData, params }) => ({
     meta: [
       { title: `${loaderData?.svc?.title ?? "Service"} — Stacklink UAE` },
       { name: "description", content: loaderData?.svc?.desc ?? "" },
       { property: "og:title", content: loaderData?.svc?.title ?? "" },
       { property: "og:description", content: loaderData?.svc?.desc ?? "" },
       { property: "og:image", content: loaderData?.svc?.img ?? "" },
+      { property: "og:url", content: `https://stacklink-elite-theme.lovable.app/services/${params.slug}` },
+      { property: "og:type", content: "website" },
     ],
+    links: [
+      { rel: "canonical", href: `https://stacklink-elite-theme.lovable.app/services/${params.slug}` },
+    ],
+    scripts: loaderData?.svc ? [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          name: loaderData.svc.title,
+          description: loaderData.svc.desc,
+          provider: { "@type": "Organization", name: "Stacklink", url: "https://stacklink-elite-theme.lovable.app/" },
+          areaServed: ["AE", "GB", "IN"],
+          url: `https://stacklink-elite-theme.lovable.app/services/${params.slug}`,
+        }),
+      },
+    ] : [],
   }),
   component: ServicePage,
   notFoundComponent: () => (

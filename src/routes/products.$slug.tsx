@@ -14,13 +14,32 @@ export const Route = createFileRoute("/products/$slug")({
     if (!product) throw notFound();
     return { product, related: getRelated(product) };
   },
-  head: ({ loaderData }) => ({
+  head: ({ loaderData, params }) => ({
     meta: [
       { title: `${loaderData?.product?.title ?? "Product"} — Stacklink UAE` },
       { name: "description", content: loaderData?.product?.description ?? "" },
       { property: "og:title", content: loaderData?.product?.title ?? "" },
       { property: "og:description", content: loaderData?.product?.shortSpec ?? "" },
+      { property: "og:url", content: `https://stacklink-elite-theme.lovable.app/products/${params.slug}` },
+      { property: "og:type", content: "product" },
     ],
+    links: [
+      { rel: "canonical", href: `https://stacklink-elite-theme.lovable.app/products/${params.slug}` },
+    ],
+    scripts: loaderData?.product ? [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Product",
+          name: loaderData.product.title,
+          description: loaderData.product.description,
+          brand: { "@type": "Brand", name: loaderData.product.brand },
+          category: loaderData.product.categoryName,
+          url: `https://stacklink-elite-theme.lovable.app/products/${params.slug}`,
+        }),
+      },
+    ] : [],
   }),
   component: ProductDetail,
   notFoundComponent: () => (
