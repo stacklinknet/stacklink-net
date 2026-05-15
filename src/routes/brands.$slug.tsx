@@ -12,12 +12,17 @@ export const Route = createFileRoute("/brands/$slug")({
     if (!brand) throw notFound();
     return { brand, products: getProductsByBrand(brand.name) };
   },
-  head: ({ loaderData }) => ({
+  head: ({ loaderData, params }) => ({
     meta: [
       { title: `${loaderData?.brand?.name ?? "Brand"} — Authorized Partner | Stacklink` },
       { name: "description", content: `Stacklink is an authorized partner of ${loaderData?.brand?.name}. Sales, deployment and support across the UAE.` },
       { property: "og:title", content: `${loaderData?.brand?.name} — Stacklink` },
       { property: "og:description", content: `Buy ${loaderData?.brand?.name} products with installation and support across UAE.` },
+      { property: "og:url", content: `https://stacklink-elite-theme.lovable.app/brands/${params.slug}` },
+      { property: "og:type", content: "website" },
+    ],
+    links: [
+      { rel: "canonical", href: `https://stacklink-elite-theme.lovable.app/brands/${params.slug}` },
     ],
   }),
   component: BrandPage,

@@ -14,10 +14,46 @@ const ICONS: Record<string, any> = { ShieldCheck, Network, Wifi, Cctv, PhoneCall
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Stacklink — UAE's Premium IT Hardware & Networking Partner" },
+      { title: "Stacklink — Premium IT Hardware & Networking UAE" },
       { name: "description", content: "22+ years delivering enterprise IT, networking, security, CCTV and cloud solutions across the UAE. Trusted by 1000+ businesses." },
-      { property: "og:title", content: "Stacklink — Premium IT & Networking" },
-      { property: "og:description", content: "Enterprise IT infrastructure, networking, security and cloud solutions across the UAE." },
+      { property: "og:title", content: "Stacklink — Premium IT & Networking UAE" },
+      { property: "og:description", content: "22+ years delivering enterprise networking, security, CCTV, telephony, server and cloud solutions to 1000+ UAE businesses." },
+      { property: "og:url", content: "https://stacklink-elite-theme.lovable.app/" },
+      { property: "og:type", content: "website" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://stacklink-elite-theme.lovable.app/" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "Stacklink",
+          url: "https://stacklink-elite-theme.lovable.app/",
+          logo: "https://stacklink-elite-theme.lovable.app/favicon.ico",
+          description: "UAE's premium IT hardware & networking partner — 22+ years delivering enterprise networking, security, CCTV, telephony, server and cloud solutions.",
+          telephone: "+971 56 339 0030",
+          email: "contact@stacklink.net",
+          address: { "@type": "PostalAddress", streetAddress: "Business Bay", addressLocality: "Dubai", addressCountry: "AE" },
+          sameAs: ["https://linkedin.com", "https://instagram.com", "https://facebook.com"],
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "Stacklink",
+          url: "https://stacklink-elite-theme.lovable.app/",
+          potentialAction: {
+            "@type": "SearchAction",
+            target: "https://stacklink-elite-theme.lovable.app/search?q={search_term_string}",
+            "query-input": "required name=search_term_string",
+          },
+        }),
+      },
     ],
   }),
   component: Home,

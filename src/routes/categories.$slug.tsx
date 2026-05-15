@@ -15,12 +15,17 @@ export const Route = createFileRoute("/categories/$slug")({
     if (!cat) throw notFound();
     return { cat };
   },
-  head: ({ loaderData }) => ({
+  head: ({ loaderData, params }) => ({
     meta: [
       { title: `${loaderData?.cat?.name ?? "Category"} — Stacklink UAE` },
       { name: "description", content: `Buy ${loaderData?.cat?.name} from leading global brands. Genuine, warranty-backed, with installation across UAE.` },
       { property: "og:title", content: `${loaderData?.cat?.name} | Stacklink` },
       { property: "og:description", content: loaderData?.cat?.desc ?? "" },
+      { property: "og:url", content: `https://stacklink-elite-theme.lovable.app/categories/${params.slug}` },
+      { property: "og:type", content: "website" },
+    ],
+    links: [
+      { rel: "canonical", href: `https://stacklink-elite-theme.lovable.app/categories/${params.slug}` },
     ],
   }),
   component: CategoryPage,

@@ -13,6 +13,33 @@ export const Route = createFileRoute("/contact")({
       { property: "og:title", content: "Contact Stacklink" },
       { property: "og:description", content: "Get a free IT consultation and quote within 24 hours." },
       { property: "og:image", content: banner },
+      { property: "og:url", content: "https://stacklink-elite-theme.lovable.app/contact" },
+      { property: "og:type", content: "website" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://stacklink-elite-theme.lovable.app/contact" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          name: "Stacklink",
+          url: "https://stacklink-elite-theme.lovable.app/contact",
+          telephone: "+971 56 339 0030",
+          email: "contact@stacklink.net",
+          address: { "@type": "PostalAddress", streetAddress: "Business Bay", addressLocality: "Dubai", addressCountry: "AE" },
+          openingHours: "Mo-Sa 09:00-18:00",
+          areaServed: ["AE", "GB", "IN"],
+          department: [
+            { "@type": "LocalBusiness", name: "Stacklink Abu Dhabi", address: { "@type": "PostalAddress", streetAddress: "Al Maryah Island", addressLocality: "Abu Dhabi", addressCountry: "AE" } },
+            { "@type": "LocalBusiness", name: "Stacklink Deira", address: { "@type": "PostalAddress", streetAddress: "Al Rigga", addressLocality: "Dubai", addressCountry: "AE" } },
+            { "@type": "LocalBusiness", name: "Stacklink London", address: { "@type": "PostalAddress", streetAddress: "Canary Wharf", addressLocality: "London", addressCountry: "GB" } },
+            { "@type": "LocalBusiness", name: "Stacklink Mumbai", address: { "@type": "PostalAddress", streetAddress: "Bandra Kurla Complex", addressLocality: "Mumbai", addressCountry: "IN" } },
+          ],
+        }),
+      },
     ],
   }),
   component: Contact,
