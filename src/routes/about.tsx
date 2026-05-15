@@ -12,6 +12,11 @@ export const Route = createFileRoute("/about")({
       { property: "og:title", content: "About Stacklink" },
       { property: "og:description", content: "UAE's premium IT infrastructure & networking company." },
       { property: "og:image", content: banner },
+      { property: "og:url", content: "https://stacklink-elite-theme.lovable.app/about" },
+      { property: "og:type", content: "website" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://stacklink-elite-theme.lovable.app/about" },
     ],
   }),
   component: About,

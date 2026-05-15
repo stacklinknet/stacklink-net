@@ -17,10 +17,17 @@ export const Route = createFileRoute("/categories/$slug/$sub")({
     if (!sub) throw notFound();
     return { cat, sub };
   },
-  head: ({ loaderData }) => ({
+  head: ({ loaderData, params }) => ({
     meta: [
       { title: `${loaderData?.sub?.name ?? "Subcategory"} — ${loaderData?.cat?.name} | Stacklink UAE` },
       { name: "description", content: `Buy ${loaderData?.sub?.name} from Dell, HPE, IBM and more. Genuine, warranty-backed, with installation across UAE.` },
+      { property: "og:title", content: `${loaderData?.sub?.name} — ${loaderData?.cat?.name} | Stacklink` },
+      { property: "og:description", content: `Shop ${loaderData?.sub?.name} from Dell, HPE, IBM and more. Genuine, warranty-backed enterprise hardware with UAE-wide delivery and installation.` },
+      { property: "og:url", content: `https://stacklink-elite-theme.lovable.app/categories/${params.slug}/${params.sub}` },
+      { property: "og:type", content: "website" },
+    ],
+    links: [
+      { rel: "canonical", href: `https://stacklink-elite-theme.lovable.app/categories/${params.slug}/${params.sub}` },
     ],
   }),
   component: SubcategoryPage,
