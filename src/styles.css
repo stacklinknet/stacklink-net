@@ -176,6 +176,12 @@
   }
   .animate-pulse-glow { animation: pulse-glow 2.5s ease-in-out infinite; }
 
+  @keyframes whatsapp-pulse-glow {
+    0%, 100% { box-shadow: 0 0 18px rgba(37, 211, 102, 0.45), 0 0 6px rgba(37, 211, 102, 0.25); }
+    50% { box-shadow: 0 0 32px rgba(37, 211, 102, 0.75), 0 0 10px rgba(37, 211, 102, 0.45); }
+  }
+  .animate-whatsapp-pulse-glow { animation: whatsapp-pulse-glow 2.4s ease-in-out infinite; }
+
   @keyframes marquee {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
