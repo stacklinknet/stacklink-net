@@ -8,7 +8,7 @@ import imgServer from "@/assets/product-server.jpg";
 import imgStorage from "@/assets/product-storage.jpg";
 
 export const CATEGORY_IMG: Record<string, string> = {
-  "network-switches": imgSwitch,
+  "network-switches": "https://i.postimg.cc/nhSBQPwK/Network-Switches-Stacklink-in-uk.jpg",
   "telephony": imgIpphone,
   "wireless": imgAp,
   "security-firewall": imgFirewall,
