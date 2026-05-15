@@ -1,0 +1,41 @@
+# Stacklink
+
+> UAE's premium IT hardware & networking partner — 22+ years delivering enterprise networking, security, CCTV, telephony, server, storage and cloud solutions across the UAE, UK and India.
+
+Stacklink is an authorized partner of 25+ leading IT brands (Cisco, Fortinet, Aruba, Dell, HPE, Ubiquiti, TP-Link and more), serving 1000+ enterprise clients with end-to-end design, supply, installation and SLA-backed 24/7 support.
+
+## Pages
+
+- [Home](/): Stacklink overview, capabilities, featured products and brands.
+- [About](/about): 22+ year company story, mission, vision and values.
+- [Services](/services): Full catalog of IT services offered.
+- [Products](/products): IT hardware product highlights.
+- [Categories](/categories): Browse 9 enterprise IT categories.
+- [Brands](/brands): 25+ authorized technology partners.
+- [Contact](/contact): Offices, phone, WhatsApp, email and quote request.
+
+## Services
+
+- [IT Services](/services/it-services): Managed IT, consultancy and digital transformation.
+- [IT Security](/services/it-security): Firewalls, endpoint protection and SOC.
+- [Wireless](/services/wireless): WiFi 6/6E indoor and outdoor.
+- [Networking](/services/networking): Switching, routing and SD-WAN.
+- [IP Telephony](/services/ip-telephony): VoIP PBX and unified communications.
+- [IT Infrastructure](/services/infrastructure): Servers, storage and data center.
+- [CCTV](/services/cctv): IP camera supply, install and monitoring.
+- [Technical Support](/services/support): AMC and SLA-backed support.
+- [Firewall](/services/firewall): Next-gen firewall design and managed services.
+- [Structured Cabling](/services/cabling): Cat6/6A and fiber backbone.
+- [Cloud Solutions](/services/cloud): Microsoft 365, Azure, AWS and hybrid cloud.
+
+## Categories
+
+- [Network Switches](/categories/network-switches)
+- [Telephony](/categories/telephony)
+- [Wireless](/categories/wireless)
+- [Security & Firewall](/categories/security-firewall)
+- [Server & Storage](/categories/server-storage)
+- [CCTV & Surveillance](/categories/cctv-surveillance)
+- [Cabinets & Rack](/categories/cabinets-rack)
+- [Softwares](/categories/softwares)
+- [Access Control](/categories/access-control)

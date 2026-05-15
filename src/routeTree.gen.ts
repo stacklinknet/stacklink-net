@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as SearchRouteImport } from './routes/search'
 import { Route as ProductsRouteImport } from './routes/products'
@@ -23,6 +24,11 @@ import { Route as CategoriesSlugRouteImport } from './routes/categories.$slug'
 import { Route as BrandsSlugRouteImport } from './routes/brands.$slug'
 import { Route as CategoriesSlugSubRouteImport } from './routes/categories.$slug.$sub'
 
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
@@ -98,6 +104,7 @@ export interface FileRoutesByFullPath {
   '/products': typeof ProductsRouteWithChildren
   '/search': typeof SearchRoute
   '/services': typeof ServicesRouteWithChildren
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/brands/$slug': typeof BrandsSlugRoute
   '/categories/$slug': typeof CategoriesSlugRouteWithChildren
   '/products/$slug': typeof ProductsSlugRoute
@@ -113,6 +120,7 @@ export interface FileRoutesByTo {
   '/products': typeof ProductsRouteWithChildren
   '/search': typeof SearchRoute
   '/services': typeof ServicesRouteWithChildren
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/brands/$slug': typeof BrandsSlugRoute
   '/categories/$slug': typeof CategoriesSlugRouteWithChildren
   '/products/$slug': typeof ProductsSlugRoute
@@ -129,6 +137,7 @@ export interface FileRoutesById {
   '/products': typeof ProductsRouteWithChildren
   '/search': typeof SearchRoute
   '/services': typeof ServicesRouteWithChildren
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/brands/$slug': typeof BrandsSlugRoute
   '/categories/$slug': typeof CategoriesSlugRouteWithChildren
   '/products/$slug': typeof ProductsSlugRoute
@@ -146,6 +155,7 @@ export interface FileRouteTypes {
     | '/products'
     | '/search'
     | '/services'
+    | '/sitemap.xml'
     | '/brands/$slug'
     | '/categories/$slug'
     | '/products/$slug'
@@ -161,6 +171,7 @@ export interface FileRouteTypes {
     | '/products'
     | '/search'
     | '/services'
+    | '/sitemap.xml'
     | '/brands/$slug'
     | '/categories/$slug'
     | '/products/$slug'
@@ -176,6 +187,7 @@ export interface FileRouteTypes {
     | '/products'
     | '/search'
     | '/services'
+    | '/sitemap.xml'
     | '/brands/$slug'
     | '/categories/$slug'
     | '/products/$slug'
@@ -192,10 +204,18 @@ export interface RootRouteChildren {
   ProductsRoute: typeof ProductsRouteWithChildren
   SearchRoute: typeof SearchRoute
   ServicesRoute: typeof ServicesRouteWithChildren
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services': {
       id: '/services'
       path: '/services'
@@ -358,6 +378,7 @@ const rootRouteChildren: RootRouteChildren = {
   ProductsRoute: ProductsRouteWithChildren,
   SearchRoute: SearchRoute,
   ServicesRoute: ServicesRouteWithChildren,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

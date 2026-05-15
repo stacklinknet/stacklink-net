@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://stacklink-elite-theme.lovable.app/sitemap.xml
