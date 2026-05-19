@@ -49,13 +49,13 @@ export const CATEGORIES: Category[] = [
     img: "/src/assets/product-ipphone.jpg" },
   { slug: "wireless", name: "Wireless", icon: "Wifi",
     desc: "WiFi 6/6E access points, controllers and outdoor wireless.",
-    img: "/src/assets/product-ap.jpg" },
+    img: "https://i.postimg.cc/gcRCtvjQ/wireless-network-in-uae.jpg" },
   { slug: "security-firewall", name: "Security & Firewall", icon: "ShieldCheck",
     desc: "Next-gen firewalls, UTM appliances and endpoint security.",
-    img: "/src/assets/product-firewall.jpg" },
+    img: "https://i.postimg.cc/kG6XLDVS/firewall-and-Security-Products-in-UAE.jpg" },
   { slug: "server-storage", name: "Server & Storage", icon: "Server",
     desc: "Rack, tower and blade servers plus enterprise storage.",
-    img: "/src/assets/product-server.jpg",
+    img: "https://i.postimg.cc/c47rWgkG/server-and-stoage-products-in-uae.jpg",
     subs: [
       { slug: "rack-servers", name: "Rack Servers" },
       { slug: "tower-servers", name: "Tower Servers" },
@@ -76,13 +76,13 @@ export const CATEGORIES: Category[] = [
     img: "/src/assets/product-cctv.jpg" },
   { slug: "cabinets-rack", name: "Cabinets & Rack", icon: "Server",
     desc: "Server racks, wall-mount cabinets, PDUs and accessories.",
-    img: "/src/assets/product-storage.jpg" },
+    img: "https://i.postimg.cc/JnRpTBFR/cabins-and-racks.jpg" },
   { slug: "softwares", name: "Softwares", icon: "Cog",
     desc: "Microsoft, VMware, antivirus and enterprise software licenses.",
-    img: "/src/assets/product-server.jpg" },
+    img: "https://i.postimg.cc/Hk4P1gyg/softwares.jpg" },
   { slug: "access-control", name: "Access Control", icon: "Lock",
     desc: "Biometric, RFID readers, door controllers and visitor systems.",
-    img: "/src/assets/product-firewall.jpg" },
+    img: "https://i.postimg.cc/kXqpjzkX/access-control-products-in-UAE.jpg" },
 ];
 
 // Legacy alias for older pages
