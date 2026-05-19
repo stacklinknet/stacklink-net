@@ -175,13 +175,13 @@ function pickImage(catSlug: string): string {
   const map: Record<string, string> = {
     "network-switches": "/src/assets/product-switch.jpg",
     "telephony": "/src/assets/product-ipphone.jpg",
-    "wireless": "/src/assets/product-ap.jpg",
-    "security-firewall": "/src/assets/product-firewall.jpg",
-    "server-storage": "/src/assets/product-server.jpg",
+    "wireless": "https://i.postimg.cc/gcRCtvjQ/wireless-network-in-uae.jpg",
+    "security-firewall": "https://i.postimg.cc/kG6XLDVS/firewall-and-Security-Products-in-UAE.jpg",
+    "server-storage": "https://i.postimg.cc/c47rWgkG/server-and-stoage-products-in-uae.jpg",
     "cctv-surveillance": "/src/assets/product-cctv.jpg",
-    "cabinets-rack": "/src/assets/product-storage.jpg",
-    "softwares": "/src/assets/product-server.jpg",
-    "access-control": "/src/assets/product-firewall.jpg",
+    "cabinets-rack": "https://i.postimg.cc/JnRpTBFR/cabins-and-racks.jpg",
+    "softwares": "https://i.postimg.cc/Hk4P1gyg/softwares.jpg",
+    "access-control": "https://i.postimg.cc/kXqpjzkX/access-control-products-in-UAE.jpg",
   };
   return map[catSlug] ?? "/src/assets/product-server.jpg";
 }
