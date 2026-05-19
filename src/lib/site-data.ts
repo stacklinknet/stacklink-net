@@ -16,7 +16,7 @@ export const COMPANY = {
 };
 
 export const SERVICES = [
-  { slug: "it-services", title: "IT Services", icon: "Cog", desc: "Managed IT, consultancy and digital transformation services for enterprises.", img: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=900&q=80" },
+  { slug: "it-services", title: "IT Services", icon: "Cog", desc: "Managed IT, consultancy and digital transformation services for enterprises.", img: "https://i.postimg.cc/1XsQPH3V/IT-Services.jpg" },
   { slug: "it-security", title: "IT Security Solutions", icon: "ShieldCheck", desc: "Enterprise-grade firewalls, endpoint protection and SOC services.", img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=900&q=80" },
   { slug: "wireless", title: "Wireless Solutions", icon: "Wifi", desc: "High-density indoor & outdoor WiFi 6/6E from leading vendors.", img: "https://images.unsplash.com/photo-1606765962248-7ff407b51667?w=900&q=80" },
   { slug: "networking", title: "Networking Solutions", icon: "Network", desc: "Switching, routing and SD-WAN built for scale and uptime.", img: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=900&q=80" },
