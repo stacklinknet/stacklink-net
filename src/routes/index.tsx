@@ -14,7 +14,7 @@ const ICONS: Record<string, any> = { ShieldCheck, Network, Wifi, Cctv, PhoneCall
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Stacklink — Premium IT Hardware & Networking UAE" },
+      { title: "Stacklink — IT Hardware & Networking equipment supplier in UAE" },
       { name: "description", content: "22+ years delivering enterprise IT, networking, security, CCTV and cloud solutions across the UAE. Trusted by 1000+ businesses." },
       { property: "og:title", content: "Stacklink — Premium IT & Networking UAE" },
       { property: "og:description", content: "22+ years delivering enterprise networking, security, CCTV, telephony, server and cloud solutions to 1000+ UAE businesses." },
