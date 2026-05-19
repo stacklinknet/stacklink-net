@@ -17,7 +17,8 @@ export function BrandMarquee() {
             aria-label={b.name}
           >
             <img
-              src={brandLogo(b.domain)}
+              {/* src={brandLogo(b.domain)} */}
+              src={b.logo}
               alt={b.name}
               loading="lazy"
               className="max-h-12 max-w-[120px] object-contain grayscale group-hover:grayscale-0 opacity-80 group-hover:opacity-100 transition-smooth"
