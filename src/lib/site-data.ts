@@ -17,16 +17,16 @@ export const COMPANY = {
 
 export const SERVICES = [
   { slug: "it-services", title: "IT Services", icon: "Cog", desc: "Managed IT, consultancy and digital transformation services for enterprises.", img: "https://i.postimg.cc/1XsQPH3V/IT-Services.jpg" },
-  { slug: "it-security", title: "IT Security Solutions", icon: "ShieldCheck", desc: "Enterprise-grade firewalls, endpoint protection and SOC services.", img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=900&q=80" },
-  { slug: "wireless", title: "Wireless Solutions", icon: "Wifi", desc: "High-density indoor & outdoor WiFi 6/6E from leading vendors.", img: "https://images.unsplash.com/photo-1606765962248-7ff407b51667?w=900&q=80" },
-  { slug: "networking", title: "Networking Solutions", icon: "Network", desc: "Switching, routing and SD-WAN built for scale and uptime.", img: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=900&q=80" },
-  { slug: "ip-telephony", title: "IP Telephony Solutions", icon: "PhoneCall", desc: "VoIP PBX, IP phones and unified communications.", img: "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=900&q=80" },
-  { slug: "infrastructure", title: "IT Infrastructure", icon: "Server", desc: "Servers, storage, structured cabling and data center fit-out.", img: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=900&q=80" },
-  { slug: "cctv", title: "CCTV Installation", icon: "Cctv", desc: "IP camera supply, installation and centralized monitoring.", img: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=900&q=80" },
-  { slug: "support", title: "Technical Support", icon: "Headphones", desc: "AMC, SLA-backed support and on-site engineers across UAE.", img: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=900&q=80" },
-  { slug: "firewall", title: "Firewall Solutions", icon: "ShieldCheck", desc: "Next-gen firewall design, deployment and managed services.", img: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=900&q=80" },
-  { slug: "cabling", title: "Structured Cabling", icon: "Network", desc: "Cat6/6A, fiber backbone and certified data cabling installations.", img: "https://images.unsplash.com/photo-1551808525-51a94da548ce?w=900&q=80" },
-  { slug: "cloud", title: "Cloud Solutions", icon: "Layers", desc: "Microsoft 365, Azure, AWS migration and hybrid cloud architecture.", img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=900&q=80" },
+  { slug: "it-security", title: "IT Security Solutions", icon: "ShieldCheck", desc: "Enterprise-grade firewalls, endpoint protection and SOC services.", img: "https://i.postimg.cc/yd24kkST/IT-Security-Solutions.png" },
+  { slug: "wireless", title: "Wireless Solutions", icon: "Wifi", desc: "High-density indoor & outdoor WiFi 6/6E from leading vendors.", img: "https://i.postimg.cc/c4sTfdMY/Wireless-network-solution.jpg" },
+  { slug: "networking", title: "Networking Solutions", icon: "Network", desc: "Switching, routing and SD-WAN built for scale and uptime.", img: "https://i.postimg.cc/MGyjsQzp/Netwoking-IT-Solutoins.jpg" },
+  { slug: "ip-telephony", title: "IP Telephony Solutions", icon: "PhoneCall", desc: "VoIP PBX, IP phones and unified communications.", img: "https://i.postimg.cc/9MQFGRMv/IP-Telephony-Solutions.jpg" },
+  { slug: "infrastructure", title: "IT Infrastructure", icon: "Server", desc: "Servers, storage, structured cabling and data center fit-out.", img: "https://i.postimg.cc/7hXRShCZ/IT-Infrastructure.jpg" },
+  { slug: "cctv", title: "CCTV Installation", icon: "Cctv", desc: "IP camera supply, installation and centralized monitoring.", img: "https://i.postimg.cc/Cxvf9g8K/CCTV-installation-services-in-UAE.png" },
+  { slug: "support", title: "Technical Support", icon: "Headphones", desc: "AMC, SLA-backed support and on-site engineers across UAE.", img: "https://i.postimg.cc/90qpQfGN/Stacklink-Technical-Support-in-UAE.webp" },
+  { slug: "firewall", title: "Firewall Solutions", icon: "ShieldCheck", desc: "Next-gen firewall design, deployment and managed services.", img: "https://i.postimg.cc/Qtg74Wkv/Firewall-solutions-in-UAE.avif" },
+  { slug: "cabling", title: "Structured Cabling", icon: "Network", desc: "Cat6/6A, fiber backbone and certified data cabling installations.", img: "https://i.postimg.cc/15d8KH1g/Structured-Cabling.jpg" },
+  { slug: "cloud", title: "Cloud Solutions", icon: "Layers", desc: "Microsoft 365, Azure, AWS migration and hybrid cloud architecture.", img: "https://i.postimg.cc/gcXj2hZm/Cloud-Solutions-in-UAE.jpg" },
 ];
 
 // 9 main categories (e-commerce style) with optional subcategories
