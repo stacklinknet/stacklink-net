@@ -5,7 +5,7 @@ export const COMPANY = {
   whatsapp: "971547832139",
   whatsappDisplay: "+971 54 783 2139",
   email: "contact@stacklink.net",
-  address: "Business Bay, Dubai, United Arab Emirates",
+  address: "BUR DUBAI, Dubai, United Arab Emirates, Deira",
   social: {
     linkedin: "https://linkedin.com",
     instagram: "https://instagram.com",
