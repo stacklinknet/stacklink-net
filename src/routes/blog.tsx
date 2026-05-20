@@ -1,7 +1,11 @@
+import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Calendar, ArrowRight, Clock } from "lucide-react";
 import { SiteLayout } from "@/components/site/Layout";
+import { Button } from "@/components/ui/button";
 import { BLOG_POSTS, formatBlogDate } from "@/lib/blog";
+
+const PAGE_SIZE = 3;
 
 export const Route = createFileRoute("/blog")({
   head: () => ({
@@ -20,6 +24,9 @@ export const Route = createFileRoute("/blog")({
 
 function BlogIndex() {
   const [featured, ...rest] = BLOG_POSTS;
+  const [visible, setVisible] = useState(PAGE_SIZE);
+  const shown = rest.slice(0, visible);
+  const hasMore = visible < rest.length;
   return (
     <SiteLayout>
       <section className="relative overflow-hidden -mt-20 pt-32 pb-16">
@@ -71,10 +78,22 @@ function BlogIndex() {
           )}
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {rest.map((post, i) => (
+            {shown.map((post, i) => (
               <BlogCard key={post.slug} post={post} delay={i * 0.05} />
             ))}
           </div>
+
+          {hasMore && (
+            <div className="flex justify-center mt-12">
+              <Button
+                size="lg"
+                onClick={() => setVisible((v) => v + PAGE_SIZE)}
+                className="bg-cyan hover:bg-cyan/90 text-white font-semibold px-8"
+              >
+                Load More Articles
+              </Button>
+            </div>
+          )}
         </div>
       </section>
     </SiteLayout>
