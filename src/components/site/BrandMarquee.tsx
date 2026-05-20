@@ -19,6 +19,7 @@ export function BrandMarquee() {
             <img
               src={b.logo}
               alt={b.name}
+              />
               loading="lazy"
               className="max-h-12 max-w-[120px] object-contain grayscale group-hover:grayscale-0 opacity-80 group-hover:opacity-100 transition-smooth"
               onError={(e) => {
@@ -27,7 +28,6 @@ export function BrandMarquee() {
                 const fb = t.nextElementSibling as HTMLElement | null;
                 if (fb) fb.style.display = "block";
               }}
-            />
             <span style={{ display: "none" }} className="font-display font-bold text-base text-primary">{b.name}</span>
           </Link>
         ))}
