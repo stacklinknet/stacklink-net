@@ -10,6 +10,7 @@ const NAV = [
   { to: "/services", label: "Services" },
   { to: "/categories", label: "Shop", hasMega: true },
   { to: "/brands", label: "Partners" },
+  { to: "/blog", label: "Blog" },
   { to: "/contact", label: "Contact" },
 ];
 
