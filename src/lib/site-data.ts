@@ -118,7 +118,7 @@ export const BRANDS: { name: string; domain: string }[] = [
   { name: "Yealink", domain: "yealink.com" },
 ];
 
-// export const brandLogo = (domain: string) => `https://logo.clearbit.com/${domain}`;
+export const brandLogo = (domain: string) => `https://logo.clearbit.com/${domain}`;
 export const brandSlug = (name: string) => name.toLowerCase().replace(/\s+/g, "-");
 export const brandByName = (name: string) => BRANDS.find((b) => b.name === name);
 
