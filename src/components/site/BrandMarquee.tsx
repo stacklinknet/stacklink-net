@@ -17,7 +17,6 @@ export function BrandMarquee() {
             aria-label={b.name}
           >
             <img
-              {/* src={brandLogo(b.domain)} */}
               src={b.logo}
               alt={b.name}
               loading="lazy"
