@@ -32,8 +32,8 @@ function BlogIndex() {
       <section className="relative overflow-hidden -mt-20 pt-32 pb-16">
         <div className="absolute inset-0" style={{ background: "linear-gradient(120deg, oklch(0.15 0.06 255), oklch(0.22 0.08 230) 60%, oklch(0.32 0.12 200))" }} />
         <div className="absolute inset-0 grid-bg opacity-30" />
-        <div className="container mx-auto px-4 relative">
-          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan animate-fade-up">Stacklink Blog</p>
+        <div className="container mx-auto px-4 relative text-center">
+          <p className="text-sm font-bold uppercase tracking-[0.25em] text-cyan animate-fade-up">Blog</p>
           <h1 className="font-display font-bold text-4xl md:text-5xl text-white mt-3 max-w-3xl animate-fade-up" style={{ animationDelay: "0.1s" }}>
             Insights on IT, networking & security
           </h1>
