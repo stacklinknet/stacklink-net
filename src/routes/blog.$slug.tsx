@@ -2,7 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Calendar, Clock, ArrowLeft, ArrowRight, User } from "lucide-react";
 import { SiteLayout } from "@/components/site/Layout";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
-import { getPostBySlug, getRelatedPosts, formatBlogDate, BLOG_POSTS } from "@/lib/blog";
+import { getPostBySlug, getRelatedPosts, formatBlogDate, BLOG_POSTS, type BlogPost } from "@/lib/blog";
 
 export const Route = createFileRoute("/blog/$slug")({
   loader: ({ params }) => {
@@ -72,7 +72,7 @@ export const Route = createFileRoute("/blog/$slug")({
 });
 
 function BlogDetail() {
-  const { post } = Route.useLoaderData();
+  const { post } = Route.useLoaderData() as { post: BlogPost };
   const related = getRelatedPosts(post.slug, 3);
 
   return (
