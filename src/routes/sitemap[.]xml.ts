@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 import { CATEGORIES, BRANDS, SERVICES, brandSlug } from "@/lib/site-data";
 import { PRODUCT_CATALOG } from "@/lib/catalog";
+import { BLOG_POSTS } from "@/lib/blog";
 
 const BASE_URL = "https://stacklink-elite-theme.lovable.app";
 
@@ -19,6 +20,7 @@ export const Route = createFileRoute("/sitemap.xml")({
           { path: "/categories", changefreq: "weekly", priority: "0.8" },
           { path: "/brands", changefreq: "monthly", priority: "0.7" },
           { path: "/contact", changefreq: "monthly", priority: "0.7" },
+          { path: "/blog", changefreq: "weekly", priority: "0.8" },
         ];
         for (const s of SERVICES) entries.push({ path: `/services/${s.slug}`, changefreq: "monthly", priority: "0.7" });
         for (const c of CATEGORIES) {
@@ -27,6 +29,7 @@ export const Route = createFileRoute("/sitemap.xml")({
         }
         for (const b of BRANDS) entries.push({ path: `/brands/${brandSlug(b.name)}`, changefreq: "monthly", priority: "0.6" });
         for (const p of PRODUCT_CATALOG) entries.push({ path: `/products/${p.slug}`, changefreq: "monthly", priority: "0.5" });
+        for (const post of BLOG_POSTS) entries.push({ path: `/blog/${post.slug}`, changefreq: "monthly", priority: "0.6" });
 
         const urls = entries.map((e) => [
           "  <url>",
