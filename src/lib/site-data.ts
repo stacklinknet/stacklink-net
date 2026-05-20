@@ -91,8 +91,8 @@ export const PRODUCTS = CATEGORIES.slice(0, 8).map((c) => ({
 }));
 
 // Real brand logos via Clearbit logo API (uses their domain)
-export const BRANDS: { name: string; domain: string }[] = [
-  { name: "Cisco", logo: "https://i.postimg.cc/RFWmvqRM/new-cisco-logo-png-1.png" },
+export const BRANDS: { name: string; domain?: string; logo?: string }[] = [
+  { name: "Cisco", domain: "cisco.com", logo: "https://i.postimg.cc/RFWmvqRM/new-cisco-logo-png-1.png" },
   { name: "Fortinet", domain: "fortinet.com" },
   { name: "Aruba", domain: "arubanetworks.com" },
   { name: "Ubiquiti", domain: "ui.com" },
@@ -118,7 +118,7 @@ export const BRANDS: { name: string; domain: string }[] = [
   { name: "Yealink", domain: "yealink.com" },
 ];
 
-// export const brandLogo = (domain: string) => `https://logo.clearbit.com/${domain}`;
+export const brandLogo = (domain?: string) => domain ? `https://logo.clearbit.com/${domain}` : "";
 export const brandSlug = (name: string) => name.toLowerCase().replace(/\s+/g, "-");
 export const brandByName = (name: string) => BRANDS.find((b) => b.name === name);
 

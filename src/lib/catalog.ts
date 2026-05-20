@@ -197,7 +197,7 @@ function makeProduct(brandName: string, catSlug: string, line: string, sub?: { s
     slug: slug(`${brandName}-${line}`),
     title,
     brand: brandName,
-    brandDomain: brand.domain,
+    brandDomain: brand.domain ?? "",
     category: catSlug,
     categoryName: cat.name,
     sub: sub?.slug,
