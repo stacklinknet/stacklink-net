@@ -23,6 +23,7 @@ import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
 import { Route as ProductsSlugRouteImport } from './routes/products.$slug'
 import { Route as CategoriesSlugRouteImport } from './routes/categories.$slug'
 import { Route as BrandsSlugRouteImport } from './routes/brands.$slug'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as CategoriesSlugSubRouteImport } from './routes/categories.$slug.$sub'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -95,6 +96,11 @@ const BrandsSlugRoute = BrandsSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => BrandsRoute,
 } as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => BlogRoute,
+} as any)
 const CategoriesSlugSubRoute = CategoriesSlugSubRouteImport.update({
   id: '/$sub',
   path: '/$sub',
@@ -104,7 +110,7 @@ const CategoriesSlugSubRoute = CategoriesSlugSubRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/blog': typeof BlogRoute
+  '/blog': typeof BlogRouteWithChildren
   '/brands': typeof BrandsRouteWithChildren
   '/categories': typeof CategoriesRouteWithChildren
   '/contact': typeof ContactRoute
@@ -112,6 +118,7 @@ export interface FileRoutesByFullPath {
   '/search': typeof SearchRoute
   '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/brands/$slug': typeof BrandsSlugRoute
   '/categories/$slug': typeof CategoriesSlugRouteWithChildren
   '/products/$slug': typeof ProductsSlugRoute
@@ -121,7 +128,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/blog': typeof BlogRoute
+  '/blog': typeof BlogRouteWithChildren
   '/brands': typeof BrandsRouteWithChildren
   '/categories': typeof CategoriesRouteWithChildren
   '/contact': typeof ContactRoute
@@ -129,6 +136,7 @@ export interface FileRoutesByTo {
   '/search': typeof SearchRoute
   '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/brands/$slug': typeof BrandsSlugRoute
   '/categories/$slug': typeof CategoriesSlugRouteWithChildren
   '/products/$slug': typeof ProductsSlugRoute
@@ -139,7 +147,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/blog': typeof BlogRoute
+  '/blog': typeof BlogRouteWithChildren
   '/brands': typeof BrandsRouteWithChildren
   '/categories': typeof CategoriesRouteWithChildren
   '/contact': typeof ContactRoute
@@ -147,6 +155,7 @@ export interface FileRoutesById {
   '/search': typeof SearchRoute
   '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/brands/$slug': typeof BrandsSlugRoute
   '/categories/$slug': typeof CategoriesSlugRouteWithChildren
   '/products/$slug': typeof ProductsSlugRoute
@@ -166,6 +175,7 @@ export interface FileRouteTypes {
     | '/search'
     | '/services'
     | '/sitemap.xml'
+    | '/blog/$slug'
     | '/brands/$slug'
     | '/categories/$slug'
     | '/products/$slug'
@@ -183,6 +193,7 @@ export interface FileRouteTypes {
     | '/search'
     | '/services'
     | '/sitemap.xml'
+    | '/blog/$slug'
     | '/brands/$slug'
     | '/categories/$slug'
     | '/products/$slug'
@@ -200,6 +211,7 @@ export interface FileRouteTypes {
     | '/search'
     | '/services'
     | '/sitemap.xml'
+    | '/blog/$slug'
     | '/brands/$slug'
     | '/categories/$slug'
     | '/products/$slug'
@@ -210,7 +222,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
-  BlogRoute: typeof BlogRoute
+  BlogRoute: typeof BlogRouteWithChildren
   BrandsRoute: typeof BrandsRouteWithChildren
   CategoriesRoute: typeof CategoriesRouteWithChildren
   ContactRoute: typeof ContactRoute
@@ -320,6 +332,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BrandsSlugRouteImport
       parentRoute: typeof BrandsRoute
     }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof BlogRoute
+    }
     '/categories/$slug/$sub': {
       id: '/categories/$slug/$sub'
       path: '/$sub'
@@ -329,6 +348,16 @@ declare module '@tanstack/react-router' {
     }
   }
 }
+
+interface BlogRouteChildren {
+  BlogSlugRoute: typeof BlogSlugRoute
+}
+
+const BlogRouteChildren: BlogRouteChildren = {
+  BlogSlugRoute: BlogSlugRoute,
+}
+
+const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
 
 interface BrandsRouteChildren {
   BrandsSlugRoute: typeof BrandsSlugRoute
@@ -392,7 +421,7 @@ const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
-  BlogRoute: BlogRoute,
+  BlogRoute: BlogRouteWithChildren,
   BrandsRoute: BrandsRouteWithChildren,
   CategoriesRoute: CategoriesRouteWithChildren,
   ContactRoute: ContactRoute,
