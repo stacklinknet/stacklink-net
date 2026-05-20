@@ -13,14 +13,14 @@ export interface BlogPost {
 export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "network-security-solutions",
-    title: "Network Security Solutions: A 2025 Guide for UAE Enterprises",
+    title: "Network Security Solutions: A 2026 Guide for UAE Enterprises",
     excerpt:
       "Discover the layered security architecture every UAE business needs to defend against modern cyber threats, ransomware, and insider attacks.",
-    date: "2025-09-12",
-    author: "Stacklink Editorial",
+    date: "2026-05-20",
+    author: "Stacklink",
     image: "https://i.postimg.cc/kG6XLDVS/firewall-and-Security-Products-in-UAE.jpg",
     category: "Security",
-    readTime: "7 min read",
+    readTime: "10 min read",
     content: [
       { body: "Cybersecurity is no longer a checkbox — for UAE enterprises operating across banking, hospitality, healthcare and government, it is the foundation of business continuity. In this guide we unpack the practical building blocks of a modern network security stack." },
       { heading: "Why traditional perimeter security fails", body: "Hybrid work, cloud-first applications and IoT have dissolved the classic network perimeter. Threat actors increasingly bypass legacy firewalls by exploiting identity, endpoints and unmanaged devices." },
@@ -34,11 +34,11 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Wireless Access Point Buying Guide for Offices in the UAE",
     excerpt:
       "Wi-Fi 6 vs Wi-Fi 7, indoor vs outdoor, controller-based vs cloud-managed — everything you need to choose the right AP for your workspace.",
-    date: "2025-08-28",
-    author: "Stacklink Editorial",
+    date: "2026-05-28",
+    author: "Stacklink",
     image: "https://i.postimg.cc/gcRCtvjQ/wireless-network-in-uae.jpg",
     category: "Wireless",
-    readTime: "6 min read",
+    readTime: "15 min read",
     content: [
       { body: "Choosing the right access point is the single biggest factor in office Wi-Fi performance. Density, ceiling height, and the apps your team runs all matter more than raw datasheet speeds." },
       { heading: "Wi-Fi 6 vs Wi-Fi 7", body: "Wi-Fi 6 (802.11ax) remains the sweet spot for most UAE offices in 2025 — broad client support, strong OFDMA performance, and excellent pricing. Wi-Fi 7 makes sense for high-density venues, AR/VR labs, and bandwidth-heavy creative studios." },
@@ -51,11 +51,11 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Structured Cabling Best Practices for Modern Data Centers",
     excerpt:
       "Cat6A, OM4 fiber, MPO trunks and TIA-942 — a practical reference for IT managers planning new cabling for server rooms in the UAE.",
-    date: "2025-08-14",
+    date: "2026-05-14",
     author: "Stacklink Editorial",
     image: "https://i.postimg.cc/28TBs9S9/Access-control-product-seller-in-uae.jpg",
     category: "Infrastructure",
-    readTime: "5 min read",
+    readTime: "15 min read",
     content: [
       { body: "Cabling is the invisible backbone that determines whether your network can scale for the next decade. Cutting corners here costs ten times more to fix later." },
       { heading: "Copper vs fiber", body: "Use Cat6A for horizontal runs to desks and APs (10G up to 100m). For backbone and inter-rack links, OM4 multimode fiber with LC or MPO connectors is the modern standard." },
@@ -68,8 +68,8 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Access Control Systems Explained: From RFID to Biometrics",
     excerpt:
       "A clear breakdown of physical access control technologies, how they integrate with HR and CCTV, and which fits your facility best.",
-    date: "2025-07-30",
-    author: "Stacklink Editorial",
+    date: "2026-05-30",
+    author: "Stacklink",
     image: "https://i.postimg.cc/kXqpjzkX/access-control-products-in-UAE.jpg",
     category: "Access Control",
     readTime: "6 min read",
@@ -85,8 +85,8 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Choosing Server & Storage Solutions: Tower, Rack or Hyperconverged?",
     excerpt:
       "An IT leader's guide to selecting the right server platform and storage architecture for SMB, mid-market, and enterprise workloads.",
-    date: "2025-07-16",
-    author: "Stacklink Editorial",
+    date: "2026-05-16",
+    author: "Stacklink",
     image: "https://i.postimg.cc/Wbf4dXLk/server-storage-products-in-uae.jpg",
     category: "Server & Storage",
     readTime: "8 min read",
