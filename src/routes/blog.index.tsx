@@ -133,15 +133,19 @@ function BlogIndex() {
           </div>
 
           {hasMore && (
-            <div className="flex justify-center mt-12">
-              <Button
-                size="lg"
-                onClick={() => setVisible((v) => v + PAGE_SIZE)}
-                className="bg-cyan hover:bg-cyan/90 text-white font-semibold px-8"
-              >
-                Load More Articles
-              </Button>
-            </div>
+            <>
+              <div ref={sentinelRef} aria-hidden="true" className="h-1 w-full mt-12" />
+              <div className="flex justify-center mt-6">
+                <Button
+                  size="lg"
+                  onClick={() => setVisible((v) => v + PAGE_SIZE)}
+                  variant="outline"
+                  className="font-semibold px-8"
+                >
+                  Load More Articles
+                </Button>
+              </div>
+            </>
           )}
         </div>
       </section>
