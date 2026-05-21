@@ -36,8 +36,9 @@ function BlogIndex() {
           .includes(q),
       )
     : BLOG_POSTS;
-  const [featured, ...rest] = isSearching ? [undefined, ...filtered] : filtered;
-  const shown = rest.slice(0, visible);
+  const featured = isSearching ? undefined : filtered[0];
+  const rest = isSearching ? filtered : filtered.slice(1);
+  const shown = isSearching ? rest : rest.slice(0, visible);
   const hasMore = !isSearching && visible < rest.length;
   return (
     <SiteLayout>
