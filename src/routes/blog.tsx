@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Calendar, ArrowRight, Clock } from "lucide-react";
+import { Calendar, ArrowRight, Clock, Search } from "lucide-react";
 import { SiteLayout } from "@/components/site/Layout";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { BLOG_POSTS, formatBlogDate } from "@/lib/blog";
 
 const PAGE_SIZE = 3;
@@ -23,10 +24,22 @@ export const Route = createFileRoute("/blog")({
 });
 
 function BlogIndex() {
-  const [featured, ...rest] = BLOG_POSTS;
+  const [query, setQuery] = useState("");
   const [visible, setVisible] = useState(PAGE_SIZE);
-  const shown = rest.slice(0, visible);
-  const hasMore = visible < rest.length;
+  const q = query.trim().toLowerCase();
+  const isSearching = q.length > 0;
+  const filtered = isSearching
+    ? BLOG_POSTS.filter((p) =>
+        [p.title, p.excerpt, p.category, p.author]
+          .join(" ")
+          .toLowerCase()
+          .includes(q),
+      )
+    : BLOG_POSTS;
+  const featured = isSearching ? undefined : filtered[0];
+  const rest = isSearching ? filtered : filtered.slice(1);
+  const shown = isSearching ? rest : rest.slice(0, visible);
+  const hasMore = !isSearching && visible < rest.length;
   return (
     <SiteLayout>
       <section className="relative overflow-hidden -mt-20 pt-32 pb-16">
@@ -40,11 +53,31 @@ function BlogIndex() {
           <p className="text-white/80 text-lg max-w-2xl mt-4 animate-fade-up" style={{ animationDelay: "0.2s" }}>
             Practical guides and expert opinions from our engineers — helping UAE enterprises make smarter infrastructure decisions.
           </p>
+          <div className="mt-8 max-w-xl mx-auto animate-fade-up" style={{ animationDelay: "0.3s" }}>
+            <div className="relative">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground pointer-events-none" />
+              <Input
+                type="search"
+                value={query}
+                onChange={(e) => { setQuery(e.target.value); setVisible(PAGE_SIZE); }}
+                placeholder="Search articles by keyword or title..."
+                aria-label="Search blog articles"
+                className="h-12 pl-12 pr-4 rounded-full bg-white/95 border-0 text-base shadow-elegant focus-visible:ring-2 focus-visible:ring-cyan"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
       <section className="py-16">
         <div className="container mx-auto px-4">
+          {isSearching && (
+            <p className="text-sm text-muted-foreground mb-8">
+              {filtered.length === 0
+                ? `No articles match "${query}".`
+                : `Found ${filtered.length} article${filtered.length === 1 ? "" : "s"} for "${query}".`}
+            </p>
+          )}
           {featured && (
             <Link
               to="/blog/$slug"
