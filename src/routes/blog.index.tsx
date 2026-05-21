@@ -8,7 +8,7 @@ import { BLOG_POSTS, formatBlogDate } from "@/lib/blog";
 
 const PAGE_SIZE = 3;
 
-export const Route = createFileRoute("/blog")({
+export const Route = createFileRoute("/blog/")({
   head: () => ({
     meta: [
       { title: "Blog — IT, Networking & Security Insights | Stacklink" },
