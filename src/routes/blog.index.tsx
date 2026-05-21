@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Calendar, ArrowRight, Clock, Search } from "lucide-react";
 import { SiteLayout } from "@/components/site/Layout";
@@ -40,6 +40,22 @@ function BlogIndex() {
   const rest = isSearching ? filtered : filtered.slice(1);
   const shown = isSearching ? rest : rest.slice(0, visible);
   const hasMore = !isSearching && visible < rest.length;
+  const sentinelRef = useRef<HTMLDivElement | null>(null);
+  useEffect(() => {
+    if (!hasMore) return;
+    const el = sentinelRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setVisible((v) => v + PAGE_SIZE);
+        }
+      },
+      { rootMargin: "300px 0px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [hasMore, shown.length]);
   return (
     <SiteLayout>
       <section className="relative overflow-hidden -mt-20 pt-32 pb-16">
