@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Calendar, ArrowRight, Clock, Search } from "lucide-react";
 import { SiteLayout } from "@/components/site/Layout";
@@ -40,6 +40,22 @@ function BlogIndex() {
   const rest = isSearching ? filtered : filtered.slice(1);
   const shown = isSearching ? rest : rest.slice(0, visible);
   const hasMore = !isSearching && visible < rest.length;
+  const sentinelRef = useRef<HTMLDivElement | null>(null);
+  useEffect(() => {
+    if (!hasMore) return;
+    const el = sentinelRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setVisible((v) => v + PAGE_SIZE);
+        }
+      },
+      { rootMargin: "300px 0px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [hasMore, shown.length]);
   return (
     <SiteLayout>
       <section className="relative overflow-hidden -mt-20 pt-32 pb-16">
@@ -117,15 +133,19 @@ function BlogIndex() {
           </div>
 
           {hasMore && (
-            <div className="flex justify-center mt-12">
-              <Button
-                size="lg"
-                onClick={() => setVisible((v) => v + PAGE_SIZE)}
-                className="bg-cyan hover:bg-cyan/90 text-white font-semibold px-8"
-              >
-                Load More Articles
-              </Button>
-            </div>
+            <>
+              <div ref={sentinelRef} aria-hidden="true" className="h-1 w-full mt-12" />
+              <div className="flex justify-center mt-6">
+                <Button
+                  size="lg"
+                  onClick={() => setVisible((v) => v + PAGE_SIZE)}
+                  variant="outline"
+                  className="font-semibold px-8"
+                >
+                  Load More Articles
+                </Button>
+              </div>
+            </>
           )}
         </div>
       </section>
